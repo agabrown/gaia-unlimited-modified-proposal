@@ -1,0 +1,65 @@
+\begin{workpackage}{Definition of the selection function}
+  \label{wp:selfundefinition}
+  \wpstart{1} %Starting Month
+  \wpend{12} %End Month
+  \wptype{RTD} %RTD, DEM, MGT, or OTHER
+  \wplead{MPG}
+  \personmonths{ULEI}{1}
+  \personmonths*{MPIA}{2}
+  \personmonths{INAF}{1}
+  \personmonths{UCAM}{1}
+  \personmonths{NYU}{1}
+  \personmonths{MONA}{1}
+  
+  \makewptable % Work package summary table
+
+  % Work Package Objectives
+  \begin{wpobjectives}
+    This objective of this work package is to research and implement a precise mathematical formulation of the concept of a survey selection function. The results will be written up as a scientific paper (to be published in the open access peer-reviewed literature) that will guide the rest of the work to be done within {\acro}.  The mathematical formulation of the selection function will account for the following aspects:
+    \begin{itemize}
+        \item Applicability to arbitrary astronomical sky surveys.
+        \item Selection functions for combinations of surveys can be described within the same formalism.
+        \item Accommodate multiple selection layers (e.g., the selection function intrinsic to a survey combined with additional selections imposed by the user of the data).
+        \item Unknowable aspects of the selection function should be included. For example, it is not guaranteed that all sources of data loss along the detection-telemetry-processing chain for Gaia can be traced, but this can be approximated through knowing which repeated measurements were included in the catalogue when expected.
+    \end{itemize}
+  \end{wpobjectives}
+
+  % Work Package Description
+  \begin{wpdescription}
+    % Divide work package into multiple tasks.
+    % Use \wptask command
+    % syntax: \wptask{leader}{contributors}{start-m}{end-m}{title}{description}   
+
+    \wptask{MPIA}{MPIA}{1}{12}{Work package management}{
+      \label{task:wp2coordination}
+      Management and coordination of the specific work on defining the selection function and coordination of writing the paper corresponding to deliverable \ref{dev:wp2document}. This includes planning the work to be done, assigning sub-tasks and organizing the necessary meetings to discuss progress.
+      
+      \textsf{1 MPIA \pem}
+    }
+    \wptask{MPIA}{All other}{1}{12}{R\&D formulation selection function}{
+      \label{task:wp2rtd}
+      Research and implement the mathematical formulation of survey selection functions.
+      
+      \textsf{1 MPIA + 1 ULEI + 1 INAF + 1 UCAM + 1 MONA + 1 NYU \pems}
+    }
+
+    \paragraph{Role of partners}
+    \begin{description}
+      \item[MPIA] will lead Task~\ref{task:wp2coordination}.
+      \item[ULEI, INAF, UCAM, NYU, MONA] will contribute to the research and implementation of the survey selection function mathematical formulation and will contribute to writing the paper corresponding to deliverable \ref{dev:wp2document}.
+    \end{description}
+  \end{wpdescription}
+
+  % Work Package Deliverable
+  \begin{wpdeliverables}
+    % \wpdeliverable[date]{R}{PU}{A report on \ldots}
+    \wpdeliverable[12]{MPIA}{R}{PU}{Document on the mathematical formulation of survey selection functions (to be submitted to open access peer-reviewed journal).}\label{dev:wp2document}
+  \end{wpdeliverables}
+
+\end{workpackage}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "proposal-main"
+%%% End:

@@ -1,0 +1,214 @@
+%% EU FET Open  Proposal LaTeX template
+%% Based on the h2020proposal.cls LaTeX class for writing EU H2020 RIA proposals.
+%% 
+%% Copyright (c) 2010, Giacomo Indiveri
+%%
+%%  This latex class is free software: you can redistribute it and/or modify
+%%  it under the terms of the GNU General Public License as published by
+%%  the Free Software Foundation, either version 3 of the License, or
+%%  (at your option) any later version.
+%%
+%%  h2020proposal.cls is distributed in the hope that it will be useful,
+%%  but WITHOUT ANY WARRANTY; without even the implied warranty of
+%%  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%%  GNU General Public License for more details.
+%%
+%%  You should have received a copy of the GNU General Public License
+%%  along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+%%
+%%
+%% Contributors: Elisabetta Chicca
+%%
+%% Disclaimer: The template is based on the document provided by the EU Participants Portal 
+%% at the address: http://ec.europa.eu/research/participants/data/ref/h2020/call_ptef/pt/h2020-call-pt-ria-ia_en.pdf
+%%
+%% Use the original source and the http://ec.europa.eu/ documentation for reference. We make no
+%% representations or warranties of any kind, express or implied, about the completeness, accuracy,
+%% reliability, suitability or availability with respect to the original template.
+%% In no event will we be liable for any loss or damage including without limitation, indirect or
+%% consequential loss or damage, or any loss or damage whatsoever arising out of, or in connection
+%% with, the use of this template and/or class.
+%%
+%% Makes use of the memoir class. Read the optimum memman documentation for
+%% info on how to customize your proposal.
+
+
+\documentclass[]{h2020proposal}     % Remove 'draft' option for final version
+%\documentclass[draft]{h2020proposal}
+
+\setcounter{secnumdepth}{3}
+% For in-line comments use:
+% \marginpar{comment text}
+
+%% Extra Packages
+%% ========
+%\usepackage{fontspec}% Latin Modern by default with xelatex
+
+%% LaTeX Font encoding -- DO NOT CHANGE
+%\usepackage[OT1]{fontenc} % Not needed with xelatex
+
+%% Input encoding 'utf8'. In some cases you might need 'utf8x' for
+%% extra symbols. Not all editors, especially on Windows, are UTF-8
+%% capable, so you may want to use 'latin1' instead.
+%\usepackage[utf8]{inputenc} % Not needed with xelatex
+
+%% Babel provides support for languages.  'english' uses British
+%% English hyphenation and text snippets like "Figure" and
+%% "Theorem". Use the option 'ngerman' if your document is in German.
+%% Use 'american' for American English.  Note that if you change this,
+%% the next LaTeX run may show spurious errors.  Simply run it again.
+%% If they persist, remove the .aux file and try again.
+\usepackage[english]{babel}
+
+%% For underlined wrapped text.
+\usepackage{soul}
+
+%% This changes default fonts for both text and math mode to use Herman Zapfs
+%% excellent Palatino font.  Do not change this.
+%\usepackage[sc]{mathpazo} % Not needed with xelatex
+
+%% The AMS-LaTeX extensions for mathematical typesetting.  Do not
+%% remove.
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs}
+
+%% Gantt Charts in LaTeX
+\usepackage{pgfgantt}
+
+%% LaTeX' own graphics handling
+\usepackage{graphicx}
+
+%% Fancy character protrusion.  Must be loaded after all fonts.
+\usepackage[activate]{pdfcprot}
+
+%% Nicer tables.  Read the excellent documentation.
+\usepackage{booktabs}
+
+% Compressed itemized lists (with a * at the end)
+\usepackage{mdwlist}
+
+%% Nicer URLs.  
+\usepackage{url}
+
+%% Configure citation styles
+\usepackage[numbers,sort&compress,square]{natbib}
+\def\bibfont{\footnotesize}     %for smaller fonts in the biblio section
+
+%% Hyper Ref package. In order to operate correctly, it must be the last package declared
+\usepackage[colorlinks,pagebackref,breaklinks]{hyperref} 
+
+\usepackage{marvosym}
+
+%% Extra package options
+\hypersetup{pdftitle={Who is In, and Who is Not? Determining the Gaia Survey Selection Function, GaiaUnlimited}, pdfsubject={RIA in SPACE-30-SCI-2020: Scientific data exploitation}, pdfauthor={A.G.A. Brown, H.W. Rix, M. Fouesneau, R. Drimmel, V. Belokurov, A. Casey, D. Hogg},
+  hypertexnames=true, linkcolor=blue, anchorcolor=black,
+  citecolor=blue, urlcolor=blue  
+}
+
+\urlstyle{rm} %so it doesn't use a typewriter font for urls.
+\DeclareGraphicsExtensions{.jpg,.pdf,.mps,.png} % for pdflatex
+\graphicspath{{img/} {./}} %put all figures in these dirs
+
+\include{journal-abbrevs}
+\newcommand\memo[1]{\textcolor{red}{\textbf{#1}}}
+% Duration of project in months. For now assumed 6 months preparation (hiring etc) and 36 months actual work.
+\newcommand\duration{42}
+\newcommand\acro{GaiaUnlimited}
+\newcommand\equref[1]{equation (\ref{#1})} 
+\newcommand\equrefcap[1]{Equation (\ref{#1})} 
+\newcommand\figref[1]{figure \ref{#1}}
+\newcommand\figrefs[1]{figures \ref{#1}}
+\newcommand\figrefcap[1]{Figure \ref{#1}}
+\newcommand\figrefscap[1]{Figures \ref{#1}}
+\newcommand\tabref[1]{table \ref{#1}}
+\newcommand\tabrefcap[1]{Table \ref{#1}}
+\newcommand\secref[1]{section \ref{#1}}
+\newcommand\secrefcap[1]{Section \ref{#1}}
+\newcommand\apref[1]{appendix \ref{#1}}
+\newcommand\aprefcap[1]{Appendix \ref{#1}}
+\newcommand{\By}[2]{ {\textcolor{orange}{ #1 :}} {\textcolor{blue}{ #2}}}
+\newcommand{\given}{\ensuremath{\mid}}
+\newcommand{\pem}{person-month}
+\newcommand{\pems}{person-months}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% ========================================================
+%% IMPORTANT store proposal information in global variables
+%% ========================================================
+\title{%Completeness of the Gaia-verse\\ \memo{(working title and acronym: other suggestions welcome)}
+Who is In, and Who is Not? \\ Determining the Gaia Survey Selection Function}
+% ARC suggests: Completeness of the Cosmos?
+%               (obvious down-side is that there's no Gaia in the title)
+\shortname{\acro} 
+\titlelogo{}{0.25} % file name and scale
+\fundingscheme{Research and Innovation Action}
+\topic{SPACE-30-SCI-2020: Scientific data exploitation}
+\coordinator{Anthony G.A.~Brown}{brown@strw.leidenuniv.nl}{Universiteit Leiden}
+\participant{Universiteit Leiden}{ULEI}{Netherlands} % First participant is the coordinator
+\participant{Max-Planck-Institut f\"ur Astronomie}{MPIA}{Germany} % as example...
+\participant{Osservatorio Astrofisico di Torino}{INAF}{Italy} % as example...
+\participant{University of Cambridge}{UCAM}{United Kingdom}
+\participant{Monash University}{MONA}{Australia}
+\participant{New York University}{NYU}{United States}
+% etc.
+
+% Page Headers
+%\makeoddhead{proposal}{\disptoken{@acronym}}{}{\rightmark}
+%\makeevenhead{proposal}{\leftmark}{}{\disptoken{@acronym}}
+
+%Page Footers
+%\makeevenfoot{proposal}{ \thepage }{ \date{\today} }{ \disptoken{@acronym} }
+%\makeoddfoot{proposal}{  }{ \date{\today} }{ \thepage }
+
+%Page Style
+\pagestyle{proposal} %use \pagestyle{showlocs} for debugging
+
+%Heading style 
+\makeheadstyles{default}{%
+\renewcommand*{\chapnamefont}{\normalfont\bfseries}
+\renewcommand*{\chapnumfont}{\normalfont\bfseries}
+\renewcommand*{\chaptitlefont}{\normalfont\bfseries}
+\renewcommand*{\secheadstyle}{\normalfont\bfseries}
+}%
+\headstyles{default}
+
+%Chapter Style
+\chapterstyle{section} %Avoid writing the word "Chapter" at the beginning of each proposal section
+% other possible valid styles:
+% article, bringhurst, crosshead, culver, dash, demo2, ell, southall, tandh, verville, wilsondob
+\renewcommand*{\chaptitlefont}{\normalfont\Large\bfseries}
+\renewcommand*{\chapnumfont}{\normalfont\Large\bfseries}
+
+\begin{document}
+
+\maketitle
+%\vspace{-4em}
+\renewcommand\contentsname{\normalsize Table of Contents \vspace{-4em}}
+\setlength{\cftbeforechapterskip}{1.0em plus 0.3em minus 0.1em}
+\renewcommand{\cftchapterbreak}{\addpenalty{-4000}}
+\makeparticipantstable          %for the ICT RIA proposals
+\tableofcontents*               %for the ICT RIA proposals
+%\input{abstract}
+\thispagestyle{empty}
+\pagebreak
+
+\input{excellence} % Section I
+\input{impact} % Section II
+\newpage
+\input{implementation} % Section III
+
+\bibliographystyle{aa}       %References go to end of Section III
+\bibliography{refs}
+
+\clearpage
+
+\input{members} % Section IV
+\input{ethics} % Section V
+
+%\appendix
+
+%\input{appendix} % Appendix
+
+%\backmatter
+
+\end{document}

@@ -1,0 +1,86 @@
+\begin{workpackage}{Practical implementation and dissemination of the Gaia selection function}
+  \label{wp:selfunimplementation}
+  \wpstart{1} %Starting Month
+  \wpend{\duration} %End Month
+  \wptype{RTD} %RTD, DEM, MGT, or OTHER
+  \wplead{ULEI}
+  \personmonths*{ULEI}{23}
+  \personmonths{MPIA}{12}
+  \personmonths{INAF}{6}
+  \personmonths{UCAM}{2}
+  \personmonths{NYU}{1}
+  \personmonths{MONA}{1}
+ 
+  \makewptable % Work package summary table
+
+  % Work Package Objectives
+  \begin{wpobjectives}
+    This work package provides the practical implementation of the Gaia selection functions in terms of data and associated open source computer applications. Dissemination of these results through the ESA Gaia archive and code hosting web-sites is also part of this work package. The detailed objectives are:
+    \begin{enumerate}
+      \item Implement the selection function as defined and developed in detail in work packages \ref{wp:selfundefinition}, \ref{wp:selfungaia} and \ref{wp:selfuncombine} in the form of open source computer applications and associated numerical data (e.g., in the form of tables). This corresponds to deliverables \ref{dev:wp3version1selfun}, \ref{dev:wp3version2selfun}, and \ref{dev:wp3GSFfinal}.
+      \item Implement a tool that allows for layering user defined selections on the Gaia archive data on top of the survey selection functions.
+      \item Provide implementations of a number of combined selection functions for intersections of Gaia and selected other surveys. This corresponds to deliverables \ref{dev:wp5v1}, \ref{dev:wp5v2}, and \ref{dev:wp5finalreport}.
+      \item Ensure that the implementation is embedded in a well-established ecosystem. We are targeting Astropy to which one of the participants (Price-Whelan, NYU) is a major contributor.
+      \item Identify code hosting options and make the Gaia selection function source code available publicly.
+      \item Agree with ESA/DPAC on the hosting of the numerical data associated with the Gaia selection function in the ESA archive ecosystem.
+      \item Set up a website which will be the portal to the {\acro} results. It will provide information, updates during the project lifetime, links to the sites hosting the code and data, and ensure EU funding visibility.
+      \item Disseminate the results through public prototype versions of the {\acro} data and tools, and by providing training during the community workshops on the use of the tools. Present the {\acro} tools at relevant conferences and workshops.
+    \end{enumerate}
+  \end{wpobjectives}
+
+  % Work Package Description
+  \begin{wpdescription}
+    % Divide work package into multiple tasks.
+    % Use \wptask command
+    % syntax: \wptask{leader}{contributors}{start-m}{end-m}{title}{description}
+    \wptask{ULEI}{ULEI}{1}{\duration}{Work package management}{
+      \label{task:wp4coordination}
+      Management and coordination of the implementation and dissemination of the Gaia survey selection function. This includes setting up the code hosting and interfacing with ESA/DPAC on hosting the numerical data for the selection function in the Gaia archive. The organization of the dissemination activities and creation of the {\acro} web-portal are also part of this task.
+      
+      \textsf{3 ULEI \pems}
+    }
+    \wptask{ULEI}{NYU}{7}{\duration}{Implementation}{
+      \label{task:wp4implement}
+      Implement the Gaia selection functions (both general and specialized to specific Gaia sub-samples) in terms of open source software tools and associated numerical data. Test the implementation through applications to science cases. Port the implementation to the relevant code hosting site and transfer the numerical data to the ESA Gaia archive. To ensure the long term curation it is important to embed the {\acro} tools in an existing stable ecosystem. Astropy is an excellent candidate and in this task we will also include the effort to integrate the {\acro} tools therein, relying on the expertise from NYU.
+      
+      \textsf{14 ULEI + 1 NYU \pems}
+    }    
+    \wptask{MPIA}{MPIA}{7}{\duration}{Implementation of tools to include user selections}{
+      \label{task:wp4layers}
+      Develop and implement tools to chain together the Gaia survey selections function with additional user imposed selection on the Gaia archive data. The tools should produce an overall effective selection function for the user-selected sample.
+      
+      \textsf{9 MPIA \pems}
+    }
+    \wptask{INAF}{UCAM, ULEI, MONA}{7}{\duration}{Implementation of tools for combined selection functions}{
+      \label{task:wp4combine}
+      Implement the selection functions for combinations of Gaia and other surveys based on the methodology developed in work package \ref{wp:selfuncombine}. This effort will focus on the combination of Gaia and the two surveys mentioned in \ref{task:wp5examples}. In particular for the GALAH survey an extended visit by the ULEI researcher to MONA is foreseen in order to profit from the access to GALAH data and the spectroscopic survey expertise.
+      
+      \textsf{3 MPIA + 6 INAF + 2 UCAM + 6 ULEI + 1 MONA \pems}
+    }
+
+    \paragraph{Role of partners}
+    \begin{description}
+      \item[ULEI] will lead Task~\ref{task:wp4coordination}.
+      \item[ULEI] will lead Task~\ref{task:wp4implement}.
+      \item[MPIA] will lead Task~\ref{task:wp4layers}.
+      \item[INAF] will lead Task~\ref{task:wp4combine}.
+      \item[All partners] will contribute to the implementation and testing of the tools developed in this work package. In particular the science applications pursued by the partners will constitute a strong test of the Gaia selection function implementation.
+    \end{description}
+  \end{wpdescription}
+
+  % Work Package Deliverable
+  \begin{wpdeliverables}
+    % \wpdeliverable[date]{R}{PU}{A report on \ldots}
+    \wpdeliverable[20]{ULEI}{DEM}{PU}{Prototype V1: open source and open data implementation of the top level Gaia selection functions.}\label{dev:wp4prototypev1}
+    \wpdeliverable[31]{ULEI}{DEM}{PU}{Prototype V2: open source and open data implementation of the overall and specialized Gaia selection functions and selection functions for combinations of Gaia and other surveys.}\label{dev:wp4prototypev2}
+    \wpdeliverable[\duration]{ULEI}{DEC}{PU}{Open source and open data implementation of all selection functions developed in {\acro}.}\label{dev:wp4final}
+    \wpdeliverable[\duration]{ULEI}{DEC}{PU}{Web-portal on the Gaia selection function data products and tools delivered by {\acro}.}\label{dev:wp4portal}
+  \end{wpdeliverables}
+
+\end{workpackage}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "proposal-main"
+%%% End:

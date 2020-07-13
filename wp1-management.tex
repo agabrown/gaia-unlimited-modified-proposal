@@ -1,0 +1,93 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Work Package Description  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{workpackage}{Management}
+  \label{wp:management} %change and use appropriate description
+
+  %%%%%%%%%%%%%%%%%% TOP TABLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % Data for the top table
+  \wpstart{1} %Starting Month
+  \wpend{\duration} %End Month
+  \wptype{MGT} %RTD, DEM, MGT, or OTHER
+  \wplead{ULEI}
+
+  % Person Months per participant (required, max 7, * for leader)  
+  % syntax: \personmonths{Participant number}{value}    (not wp leader)
+  %     or  \personmonths{Participant short name}{value} (not wp leader)
+  %         \personmonths*{Participant number}{value}    (wp leader)
+  % for example:
+  \personmonths*{ULEI}{8}
+  \personmonths{MPIA}{2}
+  \personmonths{INAF}{2}
+  \personmonths{UCAM}{2}
+  \personmonths{NYU}{0}
+  \personmonths{MONA}{0}
+  % etc.
+
+  \makewptable % Work package summary table
+
+  % Work Package Objectives
+  \begin{wpobjectives}
+    This package provides the administrative management and overall scientific coordination of {\acro} following the structure and procedures described in \secref{sec:management}.
+  \end{wpobjectives}
+
+  % Work Package Description
+  \begin{wpdescription}
+    % Divide work package into multiple tasks.
+    % Use \wptask command
+    % syntax: \wptask{leader}{contributors}{start-m}{end-m}{title}{description}   
+
+    This work package concerns the global administrative management and coordination tasks inside the consortium, including progress monitoring, financial management, intellectual property management, innovation management (\secref{sec:innovationmgmt}), project documentation, and communication and dissemination activities. It also includes the coordination with institutions and bodies relevant for the development of the Gaia archive like ESA, DPAC and MW-Gaia, as well as the representation of {\acro} in meetings or committees related to this coordination.
+
+    \wptask{ULEI}{ULEI}{1}{\duration}{Administrative management}{
+      \label{task:wp1coordinator}
+      Overall coordination and administrative management as described above. The coordinator will be aided in his tasks by the Leiden Observatory project support staff.
+      
+      \textsf{6 ULEI \pems}
+    }
+    \wptask{ULEI}{MPIA, INAF, UCAM}{1}{\duration}{Overall project management and coordination}{
+      \label{task:wp1others}
+      Overall scientific and technical control and coordination of the project, ensuring that the tasks are properly carried out and remain on schedule, and that the objectives of {\acro} are fulfilled. This is done by the four main partners through the {\acro} Executive Board. As stated in \secref{sec:management}, the partners NYU and MONA will have a standing invitation to meetings of the Executive Board in order to keep communications efficient.
+      
+      \textsf{2 MPIA + 2 INAF + 2 UCAM\pems}
+    }
+    \wptask{ULEI}{ULEI}{1}{\duration}{Communications and dissemination}{
+      \label{task:wp1comms}
+      Ensure that results from {\acro} are disseminated to the astronomical community through the appropriate academic channels (publications, conference presentations, community workshops). Engage this community by making available prototype implementations of the tools and provide channels for feedback. Organize three community workshops to provide training on the use of the selection function implementations and to collect feedback on the {\acro} tools.
+      
+      \textsf{2 ULEI \pems}
+    }
+  \end{wpdescription}
+  
+  % Work Package Deliverable
+  \begin{wpdeliverables}
+    % Data for the deliverables and milestones  tables
+    % syntax: \deliverable[delivery date]{nature}{dissemination
+    % level}{description} 
+    %
+    % nature: R = Report, DEM = Demonstrator, DEC = Websites, media, etc, OTHER = Other
+    % dissemination level: PU = Public, CO = Confidential, CI = CLassified.
+    % 
+    % \wpdeliverable[date]{R}{PU}{A report on \ldots}
+
+    The deliverables of this work package are the periodic and final reports for the EC, the consortium agreement (\secref{sec:cons_agreement}), the data management plan, and the organisation of the {\acro} plenary meetings (\secref{sec:procedures}) and community workshops.
+
+    \wpdeliverable[1]{ULEI}{OTHER}{PU}{Kick-off meeting (plenary).}\label{dev:wp1kickoff}
+    \wpdeliverable[2]{ULEI}{R}{PU}{Consortium agreement.}\label{dev:wp1consortium_agreement}
+    \wpdeliverable[6]{ULEI}{R}{PU}{Data management plan.}\label{dev:wp1datamanagement}
+    \wpdeliverable[13]{ULEI}{R}{PU}{First year report to EC.}\label{dev:wp1year1report}
+    \wpdeliverable[21]{ULEI}{OTHER}{PU}{Community workshop and mid-term meeting (plenary).}\label{dev:wp1midtterm}
+    \wpdeliverable[25]{ULEI}{R}{PU}{Second year report to EC.}\label{dev:wp1year2report}
+    \wpdeliverable[32]{ULEI}{OTHER}{PU}{Community workshop.}\label{dev:wp1community}
+    \wpdeliverable[41]{ULEI}{OTHER}{PU}{Community workshop and closing meeting (plenary).}\label{dev:wp1closing}
+    \wpdeliverable[\duration]{ULEI}{R}{PU}{Final report to the EC.}\label{dev:wp1finalreport}
+  \end{wpdeliverables}
+
+\end{workpackage}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "proposal-main"
+%%% End:

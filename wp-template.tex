@@ -1,0 +1,72 @@
+\begin{workpackage}{Definition selection function}
+  \label{wpx:title}
+  \wpstart{1} %Starting Month
+  \wpend{36} %End Month
+  \wptype{Activity type} %RTD, DEM, MGT, or OTHER
+  \wplead{UCAM}
+  \personmonths{ULEI}{3}
+  \personmonths*{UCAM}{12}
+  \personmonths{INAF}{2}
+
+  \makewptable % Work package summary table
+
+  % Work Package Objectives
+  \begin{wpobjectives}
+    This work package has the following objectives:
+    \begin{enumerate}
+      \item To develop ....
+      \item To apply this ....
+      \item etc.
+    \end{enumerate}
+  \end{wpobjectives}
+
+  % Work Package Description
+  \begin{wpdescription}
+    % Divide work package into multiple tasks.
+    % Use \wptask command
+    % syntax: \wptask{leader}{contributors}{start-m}{end-m}{title}{description}   
+
+    Description of work carried out in WP, broken down into tasks, and
+    with role of partners list. Use the \texttt{\textbackslash wptask} command.
+
+    \wptask{UCAM}{UCAM}{1}{12}{Test}{
+      \label{task:wpxtest}
+      Here we will test the WP Task code. 
+    }
+    \wptask{ULEI}{All other}{6}{9}{Integrate}{
+      \label{task:wpxintegrate}
+      In this task UZH will integrate the work done in ~\ref{task:wpxtest}.
+    }    
+    \wptask{ULEI}{All other}{9}{12}{Apply}{
+      Here all the WP participants will apply the results to...
+    }
+
+    \paragraph{Role of partners}
+    \begin{description}
+      \item[Participant short name] will lead Task~\ref{task:wpxintegrate}.
+      \item[UoC] will..
+    \end{description}
+  \end{wpdescription}
+
+  % Work Package Deliverable
+  \begin{wpdeliverables}
+    % \wpdeliverable[date]{R}{PU}{A report on \ldots}
+
+    \wpdeliverable[36]{UCAM}{R}{PU}{Report on the definition of the model
+    specifications.}\label{dev:wpxspecs}
+
+    \wpdeliverable[12]{ULEI}{R}{PU}{Report on Feasibility study for the model
+    implementation.}\label{dev:wpximplementation}
+
+    \wpdeliverable[24]{ULEI}{R}{PU}{Prototype of model
+    implementation.}\label{dev:wpxprototype}
+
+  \end{wpdeliverables}
+
+\end{workpackage}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "proposal-main"
+%%% End:

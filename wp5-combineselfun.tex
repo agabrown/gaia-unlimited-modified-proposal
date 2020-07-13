@@ -1,0 +1,70 @@
+\begin{workpackage}{Selection function for combinations of Gaia and other surveys}
+  \label{wp:selfuncombine}
+  \wpstart{1} %Starting Month
+  \wpend{\duration} %End Month
+  \wptype{RTD} %RTD, DEM, MGT, or OTHER
+  \wplead{MPIA}
+  \personmonths{ULEI}{2}
+  \personmonths*{MPIA}{21}
+  \personmonths{INAF}{9}
+  \personmonths{UCAM}{7}
+  \personmonths{NYU}{1}
+  \personmonths{MONA}{2}
+
+  \makewptable % Work package summary table
+
+  % Work Package Objectives
+  \begin{wpobjectives}
+    The objective of this work package is to research and develop methods to derive selection functions for the combination of Gaia and other large sky surveys. The framework for the efforts in this work package is provided by deliverable \ref{dev:wp2document}. Within the lifetime of the project it is not realistic to make combinations of Gaia and an arbitrary numbers of other surveys. Hence the concrete implementation will focus on two selected cases which are to be implemented in work package \ref{wp:selfunimplementation}. The detailed objectives are
+    \begin{enumerate}
+      \item Research and develop a generic method for constructing selection functions for combinations of surveys.
+      \item Apply this method to a selected number of cases of the combination of Gaia with another survey. We will focus our efforts on one example each of a combination of Gaia with a photometric and a spectroscopic sky survey.
+    \end{enumerate}
+  \end{wpobjectives}
+
+  % Work Package Description
+  \begin{wpdescription}
+    % Divide work package into multiple tasks.
+    % Use \wptask command
+    % syntax: \wptask{leader}{contributors}{start-m}{end-m}{title}{description}   
+    \wptask{MPIA}{MPIA}{1}{\duration}{Work package management}{
+      \label{task:wp5coordination}
+      Management and coordination of the research and development of the combined selection function and coordination of writing the paper corresponding to deliverable \ref{dev:wp5finalreport}. This includes planning the work to be done, assigning sub-tasks and organizing the necessary meetings to discuss progress. 
+      
+      \textsf{2 MPIA person months}
+    }
+    \wptask{MPIA}{ULEI, INAF, UCAM}{7}{\duration}{Generic combination method.}{
+      \label{task:wp5method}
+      Research and develop a generic method for constructing selection functions for combinations of surveys. Provide documentation on the methods, including additional practical guidance instructions for complex combination. The implementation of the combination method will be done within work package \ref{wp:selfunimplementation}. 
+      
+      \textsf{9 MPIA + 1 ULEI + 6 INAF + 4 UCAM person months}
+    }
+    \wptask{MPIA}{All other}{7}{\duration}{Combined selection functions.}{
+      \label{task:wp5examples}
+      First, applying the method developed in task~\ref{task:wp5method} to an external validation of the Gaia selection function using the DECaLS survey. Second, construct the selection function for the combination of Gaia and another survey. The focus will be on one photometric sky survey that {\acro} team members know well, i.e.\ the Pan-Starss PS1 release, and on one spectroscopic survey. For the latter we choose GALAH as an example of a recently started survey which is already well underway and to which {\acro} partner MONA has access along with the necessary expertise. Note that this task also includes matching the source list of Gaia to that of the other surveys. This should be done carefully to keep the combined selection function tractable, thus a significant effort is implied. 
+      
+      \textsf{10 MPIA + 1 ULEI + 3 INAF + 3 UCAM + 2 MONA + 1 NYU person months}
+    }    
+
+    \paragraph{Role of partners}
+    \begin{description}
+      \item[MPIA] will lead Tasks~\ref{task:wp5coordination}, \ref{task:wp5method}, and \ref{task:wp5examples}.
+      \item[All other partners] will contribute to tasks \ref{task:wp5method} and \ref{task:wp5examples}.
+    \end{description}
+  \end{wpdescription}
+
+  % Work Package Deliverable
+  \begin{wpdeliverables}
+    % \wpdeliverable[date]{R}{PU}{A report on \ldots}
+    \wpdeliverable[19]{MPIA}{R}{PU}{Report documenting the preliminary version of the combination of Gaia and a large photometric survey.}\label{dev:wp5v1}
+    \wpdeliverable[30]{MPIA}{R}{PU}{Report documenting the preliminary version the combination of Gaia and a large spectroscopic survey.}\label{dev:wp5v2}
+    \wpdeliverable[\duration]{MPIA}{R}{PU}{Report documenting the methods to construct combined selection functions, to be submitted to peer-reviewed journal.}\label{dev:wp5finalreport}
+  \end{wpdeliverables}
+
+\end{workpackage}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "proposal-main"
+%%% End:

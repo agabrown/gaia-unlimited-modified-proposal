@@ -1,0 +1,138 @@
+\begin{workpackage}{Science applications}
+  \label{wp:scienceappl}
+  \wpstart{1} %Starting Month
+  \wpend{\duration} %End Month
+  \wptype{RTD} %RTD, DEM, MGT, or OTHER
+  \wplead{INAF}
+  \personmonths{ULEI}{13}
+  \personmonths{MPIA}{13}
+  \personmonths*{INAF}{15}
+  \personmonths{UCAM}{13}
+  \personmonths{NYU}{0}
+  \personmonths{MONA}{2}
+
+  \makewptable % Work package summary table
+
+  % Work Package Objectives
+  \begin{wpobjectives}
+    The objective of this work package is to apply the Gaia selection function to concrete science cases. This serves to test the Gaia selection function implementation, to provide the community with worked examples of how to use the Gaia selection function, and to motivate the researchers involved in {\acro} and ensure that they have a scientific publication to enhance their prospects for future jobs, should they choose to continue in academia.
+    
+    Here we present four exciting science cases and list the aspects of the selection function implementation that would be tested in each case. The science cases may change in their details. However, the {\acro} board will ensure that the actual science cases will cover the testing needed for the implementation produced in WP\ref{wp:selfunimplementation}.
+    
+    \begin{description}
+      \item[A. Binary stars in Gaia] {
+        Binary stars have a complex dependency on the Gaia selection function that depends on the source observables (e.g. colour and apparent magnitude, see Fig.\ref{fig:binaries}) and the orbital properties (e.g. period, inclination, mass ratio). In this application we would apply the selection functions for Gaia astrometry and spectroscopy, as well as the selection function specialized to binaries, to understand what Gaia would, or would not, observe for a fictitious population of binary stars. Given the selection functions we would research how the Gaia observables can be used to detect and partially characterise binary star systems, and more importantly to understand which systems would not have been detected or characterized. 
+
+        By applying the selection functions to example populations of binary stars (e.g. using COMPAS, \url{https://compas.science/}, which is used and developed by a large group at MONA) we will perform population inference to make appropriate comparisons between models and the Gaia catalogue. With unbiased characterisation of binary star populations, and comparisons between observations and models where the selection functions are appropriately applied, we expect to provide unbiased answers to many long-standing questions in stellar multiplicity research, including: 
+        %how does stellar multiplicity change with metallicity and the surrounding environment? What is the distribution of initial mass ratios of binary systems? How do tidal effects change the evolution of stars? 
+        %With an unbiased characterisation of the population of binary star systems, and comparisons with models where the Gaia selection functions have been applied, we expect to address questions like 
+        how stellar multiplicity changes with metallicity, understanding the initial mass ratio distribution of stars, the timescales of tidal circularisation, to name but a few.
+        
+        \textsf{Aspects tested: overall Gaia selection function; spectroscopic Gaia selection function; specialized Gaia selection function: deliverables \ref{dev:wp3version1selfun}, \ref{dev:wp3version2selfun}, \ref{dev:wp4prototypev1}, \ref{dev:wp4prototypev2}.}
+        }
+      
+      \item[B. The Oort Limit, and Dark Matter near the Sun]{
+        The positions and motions of stars near the Sun ($<500$~pc), can constrain the gravitational potential at the Solar radius, and --- when compared to a direct census of the stellar mass --- can inform us about dark matter near the Sun. This is an analysis that has been carried out with ground-based data since the pioneering work of Oort \citep[e.g.][]{Read2014}. The robustness of results has been hampered by the fact that the local dark matter density is the difference between the total one (measured by dynamics) and the stellar one, obtained by star counts (or colour-magnitude diagram analysis); Gaia can do far better on both aspects, leading to a much better `difference' of the two terms. 
+      
+        The dynamical mass (to be measured to $<10$\%) requires exceptionally good knowledge of the selection function, as star-tracer densities and their derivatives enter in the analysis (see Eq.~\ref{eqn:Jeans}). The census of stellar mass can happen via placing stars onto the colour-magnitude diagram (using parallaxes and precise colours), inferring each star's mass and adding them up. But in any magnitude limited sample, the mix of luminous to faint stars will change as a function of distance: both dust extinction and the selection function will need to be modelled precisely. 
+      
+        This foreseen paper will aim  to provide a benchmark on how to incorporate the Gaia selection function into a dynamical analysis (and tell us how much dark matter there is near the Sun).
+        
+        \textsf{Aspects tested: overall Gaia selection function; cross-catalogue selection function; combination of Gaia selection function with (externally determined) 3D dust map: deliverables \ref{dev:wp3version1selfun}, \ref{dev:wp5v2}, \ref{dev:wp4prototypev1}, \ref{dev:wp4prototypev2}.}    
+    }
+      
+%    \item[The Luminosity Function of White Dwarfs]{
+%        White dwarfs (WD) are fascinating stellar astrophysics laboratories, the presumed progenitors of type Ia Supernovae, and precision clocks for Milky Way evolution. WDs fade over time, so the volume over which they can be seen in a practical survey depends on their age (and mass). Gaia DR2 has provided the community with an unprecedented sample of WDs \citep{WD_DR2}, hot stellar sources of low luminosity (or high parallax). Once age-dated through a combination of colour magnitude diagrams and stellar models, these white dwarfs offer an unparalleled approach to understand the age distribution of the oldest disk stars, their vertical motions, etc.
+      
+%        To put this in practice, the selection function is needed, including here also the positional dependence of the parallax uncertainty, as `good' parallaxes are indispensable to identify WDs in the first place. We will set out to use the selection function derived in this proposal to derive a) the luminosity function of white dwarfs in different volumes around the Sun, and the spatial (i.e. vertical) distribution and velocity, as a function of their age. This can then provide a foundation for studies of Galactic disk evolution, and (!) of white dwarf cooling physics.
+        
+%        \textsf{Aspects tested: overall Gaia selection function: deliverables \ref{dev:wp3version1selfun}, \ref{dev:wp4prototypev1}, \ref{dev:wp4prototypev2}.}
+%    }
+      
+     \item[C. Mapping non-axisymmetric structures of the Milky Way via Cepheids]
+        {A particularly important population are classical Cepheids. With ages between 50 and 500~Myr, classical Cepheids are excellent tracers of the young stellar population in the Galactic disc and spiral arms. Their characteristic variation in luminosity makes them easily recognized even in the severe crowding or high extinction conditions typical in these regions of the Milky Way. Their pulsation characteristics (period, mean magnitudes/colours) are linked through tight period– luminosity and period-Wesenheit relations, which make classical Cepheids primary distance indicators for use at distances beyond which standard parallax methods break down \cite{Clementini2019, Inno2013}. To accurately map the non-axysymmetric structures of the disk, it is of fundamental importance to characterize the selection function of the sample, to avoid being biased by observational effects, such as foreground extinction and the sample completeness. 
+        
+        Moreover, to understand the dynamical nature of the spiral arms and of the warp, mapping their geometry in configuration space is not sufficient. To understand why these structures exist and how they evolve, it is necessary to investigate their signature in velocity space. We are able to trace the bulk motions in the disc using the proper motions and line-of-sight velocities provided by Gaia for millions of stars, which has already provided indications of non-axisymmetric streaming motions in the giants \citep[see Fig.\ 5 in][]{Katz2018a}, as well as the kinematic signature of the warp in the systematic vertical velocities of both young and old populations \cite{Poggio2018}. Furthermore, the warp precession has been measured for a sample of 12 million giants using a simple spatial and kinematic model of the Galaxy and taking into account a preliminary Gaia selection function and measurement errors \cite{Poggio2020}. 
+        
+        As the Gaia survey of line-of-sight velocities from the most recent data release DR2 is limited to stars brighter than about 12.5 magnitude, the volume of the disc that can be fully mapped in velocity space is still somewhat limited. This volume will gradually increase with future Gaia data releases, but here again the Gaia data for classical Cepheids are a potential treasure. With relatively accurate distances spanning the Galactic disk, and Gaia proper motions, there is the potential to map the vertical kinematics of the entire Galactic disk. This would allow us to adopt and constrain more sophisticated models of the warp, or even detailed simulations of disk-satellite interactions, opening the door to the field of Galactic seismology. With additional radial velocity for these stars, either from Gaia or other surveys, we will also be able to probe in-plane non-axisymmetric streaming motions, and a fuller understanding of the Milky Ways spiral arms. Such data will potentially allow us to paint a more global picture of the dynamical state of the Milky Way. However, for a proper interpretation of the data into a dynamical model, the Gaia selection function for Cepheids must be understood. This is particularly important as our sample of Cepheids is relatively small, being a tiny fraction of the stellar disk. Using such a small sample as a kinematic tracer requires an accurate selection function of this population to avoid a biased picture. 
+        
+        \textsf{Aspects tested: selection function of variability-classified objects in the Gaia catalogue; cross-catalogue selection function; combination of Gaia selection function with (externally determined) 3D dust map: deliverables \ref{dev:wp3version1selfun}, \ref{dev:wp3version2selfun}, \ref{dev:wp5v2}, \ref{dev:wp4prototypev1}, \ref{dev:wp4prototypev2}}
+     }
+     
+     \item[D. Evolution of the Milky Way disk]
+        {GALAH is a high-resolution spectroscopic survey of $\sim10^6$ stars with the goal to measure up to 28 chemical elements for each star. The union of Gaia and GALAH represents a unique data subset. GALAH has the largest suite of chemical elements measured for any large set of stars, and because most GALAH stars are bright and nearby, no other spectroscopic survey benefits more from Gaia's exquisite astrometric precision. Currently no other sample is better suited to test formation models for the Milky Way disk, or to trace it's detailed chemical evolution with time.
+      
+        This combined data set also presents a suitable challenge, in that the selection function for both catalogues must be modelled. In theory GALAH has a selection function that depends primarily on the apparent magnitude ($12 < V <14$ mag) and sky position ($10^\circ < |b| < 60^\circ$ and sources must be visible from the sourthern hemisphere). In practice, however, the true selection function is complicated by weather, instrument errors, fibre allocations (e.g., due to crowded fields, or if the stellar density was 1--1.5 times the fibre density then the extra sources may not be re-observed) and by other astrophysical properties (e.g., dust and distance both contribute to determining whether a star is observed). Compared to most ground-based spectroscopic surveys, the \emph{intended} GALAH selection function is relatively simple, yet complicated by other astrophysical properties, and real world effects.
+      
+        As part of this objective we will combine the Gaia and GALAH selection functions in order to understand the kinematic and chemical evolution of the nearby Milky Way disk. The process of combining selection functions from multiple surveys will serve as an example for all other astronomy surveys to properly model their own selection functions, and to combine it appropriately with the Gaia selection function to be developed in this program. With the Gaia/GALAH subset, and its defined selection function, we will set out to test galaxy formation models (in a qualitative way), and to constrain dynamical effects such as radial migration, blurring, and churning, in a quantitative way. 
+        
+        The modelling approach put in place here can be transferred to upcoming spectroscopic surveys of the Milky Way, such as SDSS-V \citep{SDSS-V}, which will offer detailed element abundances across the entire sky, with a 20 times larger sample. And, the larger the sample, the smaller $1/\sqrt{N_\mathrm{sample}}$, and consequently the more crucial the knowledge of the selection function. 
+        
+        \textsf{Aspects tested: overall Gaia selection function, selection function for combined surveys: deliverables \ref{dev:wp3version1selfun}, \ref{dev:wp5v2}, \ref{dev:wp4prototypev1}, \ref{dev:wp4prototypev2}}
+     }
+     
+    \end{description}
+  \end{wpobjectives}
+
+  % Work Package Description
+  \begin{wpdescription}
+    % Divide work package into multiple tasks.
+    % Use \wptask command
+    % syntax: \wptask{leader}{contributors}{start-m}{end-m}{title}{description}   
+    \wptask{INAF}{INAF}{1}{\duration}{Work package management}{
+      \label{task:wp6coordination}
+      Management and coordination of the efforts on the science applications of the Gaia selection function. This includes monitoring the progress of the scientific papers, organizing the necessary meetings to discuss the paper contents, and ensuring that the papers expose the use of the main elements of the tools developed in {\acro}.
+      
+      \textsf{2 INAF \pems}
+    }
+    \wptask{ULEI}{ULEI, MONA}{7}{\duration}{Science application A.}{
+      \label{task:wp6sciA}
+      Carry out the research related to science application A and write a paper for a peer-reviewed journal.
+      
+      \textsf{13 ULEI + 1 MONA \pems}
+    }
+    \wptask{MPIA}{MPIA}{7}{\duration}{Science application B.}{
+      \label{task:wp6sciB}
+      Carry out the research related to science application B and write a paper for a peer-reviewed journal.
+      
+      \textsf{13 MPIA \pems}
+    }
+    \wptask{INAF}{INAF}{7}{\duration}{Science application C.}{
+      \label{task:wp6sciC}
+      Carry out the research related to science application C and write a paper for a peer-reviewed journal.
+      
+      \textsf{13 INAF \pems}
+    }
+    \wptask{UCAM}{UCAM}{7}{\duration}{Science application D.}{
+      \label{task:wp6sciD}
+      Carry out the research related to science application D and write a paper for a peer-reviewed journal.
+      
+      \textsf{13 UCAM +1  MONA \pems}
+    }
+
+    \paragraph{Role of partners}
+    \begin{description}
+      \item[ULEI] will lead Task~\ref{task:wp6sciA}.
+      \item[MPIA] will lead Task~\ref{task:wp6sciB}.
+      \item[INAF] will lead Task~\ref{task:wp6sciC}.
+      \item[UCAM] will lead Task~\ref{task:wp6sciD}.
+      \item[All partners] will contribute to each of the tasks \ref{task:wp6sciA}--\ref{task:wp6sciD}.
+    \end{description}
+    The post-doctoral researchers funded through {\acro} are expected to do the bulk of the scientific analysis for the tasks above, supported by local supervision.
+  \end{wpdescription}
+
+  % Work Package Deliverable
+  \begin{wpdeliverables}
+    \wpdeliverable[\duration]{ULEI}{R}{PU}{Paper on science application A submitted to peer reviewed journal.}\label{dev:wp6caseA}
+    \wpdeliverable[\duration]{MPIA}{R}{PU}{Paper on science application B submitted to peer reviewed journal.}\label{dev:wp6caseB}
+    \wpdeliverable[\duration]{INAF}{R}{PU}{Paper on science application C submitted to peer reviewed journal.}\label{dev:wp6caseC}
+    \wpdeliverable[\duration]{UCAM}{R}{PU}{Paper on science application D submitted to peer reviewed journal.}\label{dev:wp6caseD}
+  \end{wpdeliverables}
+
+\end{workpackage}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "proposal-main"
+%%% End:

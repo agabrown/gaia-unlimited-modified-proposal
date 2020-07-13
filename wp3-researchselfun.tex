@@ -1,0 +1,87 @@
+\begin{workpackage}{Research and develop the Gaia selection function}
+  \label{wp:selfungaia}
+  \wpstart{1} %Starting Month
+  \wpend{\duration} %End Month
+  \wptype{RTD} %RTD, DEM, MGT, or OTHER
+  \wplead{UCAM}
+  \personmonths{ULEI}{2}
+  \personmonths{MPIA}{6}
+  \personmonths{INAF}{11}
+  \personmonths*{UCAM}{19}
+  \personmonths{NYU}{1}
+  \personmonths{MONA}{2}
+  
+  \makewptable % Work package summary table
+
+  % Work Package Objectives
+  \begin{wpobjectives}
+    The objective of this work package is to research and develop in detail the description and modelling of the Gaia survey selection function. The framework for the efforts in this work package is provided by deliverable \ref{dev:wp2document}.
+    \begin{enumerate}
+      \item Develop the overall survey selection function, focusing on the Gaia astrometric, photometric, and spectroscopic surveys and combinations thereof. In addition a specialized selection function for specific subsets of the Gaia survey will be developed. To keep the scope of the work realistic we will focus on the case of binary stars and Cepheids (variable stars) in the Gaia catalogue. The development of further specialized Gaia selection functions is left to the community who can use the methods and tools developed in this work package. 
+      \item Investigate to what extent detailed information is needed on the Gaia pointing history, its on-board detection algorithm, and the data losses introduced along the various steps from on-board measurement to the final data products. Can the selection function be reverse engineered from publicly available information?
+      \item Interface with DPAC to gain a deeper understanding of the many ingredients of the Gaia selection function and collect the information necessary to describe or model spacecraft or data processing pipeline decisions that affect the selection function.
+    \end{enumerate}
+  \end{wpobjectives}
+
+  % Work Package Description
+  \begin{wpdescription}
+    % Divide work package into multiple tasks.
+    % Use \wptask command
+    % syntax: \wptask{leader}{contributors}{start-m}{end-m}{title}{description}   
+
+    \wptask{UCAM}{UCAM}{1}{\duration}{Work package management}{
+      \label{task:wp3coordination}
+       Management and coordination of the research and development of the selection function and coordination of writing the paper corresponding to deliverables \ref{dev:wp3version1selfun} and \ref{dev:wp3GSFfinal}. This includes planning the work to be done, assigning sub-tasks and organizing the necessary meetings to discuss progress.
+       
+       \textsf{1 UCAM \pem}
+    }
+    \wptask{ULEI}{ULEI}{7}{\duration}{Collect information from DPAC}{
+        \label{task:wp3collectinfo}
+        Interface with DPAC to collect the necessary information to describe or model the events/decisions on board Gaia and the decisions in the data processing pipelines that affect the selection function. 
+        
+        \textsf{2 ULEI \pems}
+    }
+    \wptask{UCAM}{INAF, NYU}{7}{\duration}{R\&D top level Gaia selection functions}{
+      \label{task:wp3toplevelGSF}
+      Research and development of the top-level Gaia selection function which describes the probability that a source enters (combinations of) the Gaia astrometric, photometric or radial velocity surveys.
+      
+      \textsf{10 UCAM + 5 INAF + 1 NYU \pems}
+    }    
+    \wptask{MPIA}{UCAM, MONA}{7}{\duration}{R\&D spectroscopic Gaia selection functions}{
+      \label{task:wp3spectroscopicGSF}
+      Research and development of the Gaia spectroscopic selection function. This refers to the probability that a BP/RP and/or and RVS spectrum was measured for a source in the Gaia survey.
+      
+      \textsf{6 MPIA + 3 UCAM + 2 MONA \pems}
+    }
+    \wptask{INAF}{INAF, UCAM}{7}{\duration}{R\&D specialized Gaia selection functions}{
+      \label{task:wp3specializedGSF}
+      Research and develop the methods needed to create selection functions for specific subsets of the Gaia survey, binary stars and Cepheid variables.
+      
+      \textsf{6 INAF + 5 UCAM\pems}
+    }
+
+    \paragraph{Role of partners}
+    \begin{description}
+      \item[UCAM] will lead Tasks~\ref{task:wp3coordination} and \ref{task:wp3toplevelGSF}.
+      \item[ULEI] will lead Task~\ref{task:wp3collectinfo}.
+      \item[MPIA] will lead Task~\ref{task:wp3toplevelGSF}.
+      \item[INAF] will lead Task~\ref{task:wp3specializedGSF}
+      \item[All partners] will contribute to the research and development of the Gaia selection functions and to the writing of the resulting papers. 
+    \end{description}
+  \end{wpdescription}
+
+  % Work Package Deliverable
+  \begin{wpdeliverables}
+    % \wpdeliverable[date]{R}{PU}{A report on \ldots}
+    \wpdeliverable[19]{UCAM}{R}{PU}{Documentation of preliminary top level Gaia selection functions.}\label{dev:wp3version1selfun}
+    \wpdeliverable[30]{UCAM}{R}{PU}{Documentation of preliminary spectrosocpic and specialized Gaia selection functions.}\label{dev:wp3version2selfun}
+    \wpdeliverable[36]{UCAM}{R}{PU}{Documentation of the Gaia selections functions (also to be submitted to as papers to a peer-reviewed journal).}\label{dev:wp3GSFfinal}
+  \end{wpdeliverables}
+
+\end{workpackage}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "proposal-main"
+%%% End:

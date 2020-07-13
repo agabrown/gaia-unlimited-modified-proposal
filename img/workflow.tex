@@ -1,0 +1,94 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% TeX file workflow.tex
+% Uses: tikz package
+% Last Updated:  2020.02.29
+% First Created: 2020.02.25
+%
+% Title: CoG workflow.
+%
+% Description: Graphic that shows approach to the work plan for CoG.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper, landscape]{article}
+
+\usepackage{times,layouts}
+\usepackage{tikz,html,amsmath}
+\usetikzlibrary{arrows,shapes,calc}
+\usetikzlibrary{backgrounds}
+\usepackage{geometry}
+\geometry{hmargin=5pt,vmargin=5pt}
+
+
+\newcommand\showpage{%
+\setlayoutscale{0.5}\setlabelfont{\tiny}\printheadingsfalse\printparametersfalse
+\currentpage\pagedesign}
+
+\hypersetup{pdftitle={CoG workflow},
+            pdfsubject={Graphic that shows approach to the work plan for CoG},
+            pdfauthor=Anthony Brown}
+
+\xdefinecolor{mptab10blue}{rgb}{0.12156862745098039, 0.4666666666666667, 0.7058823529411765}
+\xdefinecolor{mptab10orange}{rgb}{1.0, 0.4980392156862745, 0.054901960784313725}
+\xdefinecolor{mptab10green}{rgb}{0.17254901960784313, 0.6274509803921569, 0.17254901960784313}
+\xdefinecolor{mptab10red}{rgb}{0.8392156862745098, 0.15294117647058825, 0.1568627450980392}
+\xdefinecolor{mptab10purple}{rgb}{0.5803921568627451, 0.403921568627451, 0.7411764705882353}
+\xdefinecolor{mptab10brown}{rgb}{0.5490196078431373, 0.33725490196078434, 0.29411764705882354}
+\xdefinecolor{mptab10magenta}{rgb}{0.8901960784313725, 0.4666666666666667, 0.7607843137254902}
+\xdefinecolor{mptab10grey}{rgb}{0.4980392156862745, 0.4980392156862745, 0.4980392156862745}
+\xdefinecolor{mptab10olive}{rgb}{0.7372549019607844, 0.7411764705882353, 0.13333333333333333}
+\xdefinecolor{mptab10cyan}{rgb}{0.09019607843137255, 0.7450980392156863, 0.8117647058823529}
+
+\tikzstyle{wp}=[rectangle, draw=none, thick, minimum height=5mm, inner
+sep=3pt, text badly centered, text width=28mm, fill=mptab10green!60!white]
+
+\tikzstyle{usertest}=[ellipse, draw=none, thick, minimum height=8mm, inner
+sep=3pt, text badly centered, text width=14mm, rounded corners=3pt, fill=black!30!white]
+
+\tikzstyle{prototype}=[ellipse, draw=none, thick, minimum height=8mm, inner
+sep=3pt, text badly centered, text width=14mm, rounded corners=3pt, fill=mptab10orange]
+
+\tikzstyle{feedback}=[ellipse, draw=none, thick, minimum height=8mm, inner
+sep=3pt, text badly centered, text width=14mm, rounded corners=3pt, fill=mptab10blue!60!white]
+
+% Define data flow arrow style
+\tikzstyle{workflow}=[->, shorten >=1pt, shorten <=1pt, >=stealth', thick, color=black]
+
+\begin{document}
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\begin{tikzpicture}[font=\scriptsize, thick, node distance=0.8cm]
+  \node[wp] (analysis1) at (0,0) {Research \& Development};
+  \node[wp, below of=analysis1] (spec1) {Implementation requirements};
+  \node[wp, below of=spec1] (implement1) {Implementation};
+  \node[prototype, right of=spec1, xshift=2.7cm] (proto1) {Public prototype V1};
+  \node[usertest, below of=proto1, yshift=-0.9cm] (test1) {User testing at community workshop};
+  \node[feedback, below of=test1, yshift=-0.9cm] (feedback1) {Feedback};
+  \node[below of=implement1] {Phase 1};
+
+  \node[wp, right of=feedback1, xshift=2.7cm] (spec2) {Implementation requirements};
+  \node[wp, above of=spec2] (analysis2) {Research \& Development};
+  \node[wp, below of=spec2] (implement2) {Implementation};
+  \node[prototype, right of=spec2, xshift=2.7cm] (proto2) {Public prototype V2};
+  \node[usertest, below of=proto2, yshift=-0.9cm] (test2) {User testing at community workshop};
+  \node[feedback, below of=test2, yshift=-0.9cm] (feedback2) {Feedback};
+  \node[below of=implement2] {Phase 2};
+
+  \draw[workflow] (analysis1.0) -- (proto1);
+  \draw[workflow] (spec1.0) -- (proto1);
+  \draw[workflow] (implement1.0) -- (proto1);
+  \draw[workflow] (proto1) -- (test1);
+  \draw[workflow] (test1) -- (feedback1);
+  \draw[workflow] (feedback1) -- (analysis2.180);
+  \draw[workflow] (feedback1) -- (spec2.180);
+  \draw[workflow] (feedback1) -- (implement2.180);
+
+  \draw[workflow] (analysis2.0) -- (proto2);
+  \draw[workflow] (spec2.0) -- (proto2);
+  \draw[workflow] (implement2.0) -- (proto2);
+  \draw[workflow] (proto2) -- (test2);
+  \draw[workflow] (test2) -- (feedback2);
+  \draw[workflow, dashed] (feedback2) -- ($(feedback2.0)+(1,0)$);
+\end{tikzpicture}
+\end{document}

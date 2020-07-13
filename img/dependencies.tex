@@ -1,0 +1,90 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% TeX file dependencies.tex
+% Uses: tikz package
+% Last Updated:  2020.02.25
+% First Created: 2020.02.25
+%
+% Title: CoG work package dependencies.
+%
+% Description: Graphic that shows the CoG work packaged interdependencies
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{article}
+
+\usepackage{times,layouts}
+\usepackage{tikz,hyperref,amsmath}
+\usetikzlibrary{arrows,shapes,calc,decorations.text}
+\usetikzlibrary{backgrounds}
+
+\usepackage[paperwidth=130mm,paperheight=85mm,
+left=-2mm,top=3mm,bottom=0mm,right=0mm,
+noheadfoot,marginparwidth=0pt,includemp=false,
+textwidth=125mm,textheight=80mm]{geometry}
+
+\newcommand\showpage{%
+\setlayoutscale{0.5}\setlabelfont{\tiny}\printheadingsfalse\printparametersfalse
+\currentpage\pagedesign}
+
+\hypersetup{pdftitle={CoG work package dependencies},
+            pdfsubject={Graphic that shows the CoG work packaged interdependencies},
+            pdfauthor=Anthony Brown}
+
+\xdefinecolor{mptab10blue}{rgb}{0.12156862745098039, 0.4666666666666667, 0.7058823529411765}
+\xdefinecolor{mptab10orange}{rgb}{1.0, 0.4980392156862745, 0.054901960784313725}
+\xdefinecolor{mptab10green}{rgb}{0.17254901960784313, 0.6274509803921569, 0.17254901960784313}
+\xdefinecolor{mptab10red}{rgb}{0.8392156862745098, 0.15294117647058825, 0.1568627450980392}
+\xdefinecolor{mptab10purple}{rgb}{0.5803921568627451, 0.403921568627451, 0.7411764705882353}
+\xdefinecolor{mptab10brown}{rgb}{0.5490196078431373, 0.33725490196078434, 0.29411764705882354}
+\xdefinecolor{mptab10magenta}{rgb}{0.8901960784313725, 0.4666666666666667, 0.7607843137254902}
+\xdefinecolor{mptab10grey}{rgb}{0.4980392156862745, 0.4980392156862745, 0.4980392156862745}
+\xdefinecolor{mptab10olive}{rgb}{0.7372549019607844, 0.7411764705882353, 0.13333333333333333}
+\xdefinecolor{mptab10cyan}{rgb}{0.09019607843137255, 0.7450980392156863, 0.8117647058823529}
+
+\tikzstyle{wp3}=[ellipse, draw=mptab10red, thick, minimum height=8mm, inner
+sep=3pt, text badly centered, text width=13mm, fill=mptab10red!80!white]
+
+\tikzstyle{wp4}=[ellipse, draw=mptab10green, thick, minimum height=8mm, inner
+sep=3pt, text badly centered, text width=13mm, fill=mptab10green!70!white]
+
+\tikzstyle{wp5}=[ellipse, draw=mptab10orange, thick, minimum height=8mm, inner
+sep=3pt, text badly centered, text width=13mm, fill=mptab10orange!70!white]
+
+\tikzstyle{wp6}=[ellipse, draw=mptab10cyan!70!black, thick, minimum height=8mm, inner
+sep=3pt, text badly centered, text width=13mm, fill=mptab10cyan]
+
+% Define depends arrow style
+\tikzstyle{depends}=[->, shorten >=2pt, shorten <=2pt, >=stealth', thick, color=black]
+
+\begin{document}
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\begin{tikzpicture}[font=\scriptsize, thick, node distance=6.5cm]
+  \node[wp4] (wp4) {WP4\\ Implementation};
+  \node[wp3, above left of=wp4] (wp3) {WP3\\ R\&D selection function};
+  \node[wp6, above right of=wp4] (wp6) {WP6\\ Science applications};
+  \node[wp5] (wp5) at ($0.5*(wp3)+0.5*(wp6)$) {WP5\\ Combined selection functions};
+  \begin{pgfonlayer}{background}
+      \draw[draw=black, thick, rounded corners=5pt] ($(wp3)+(-1.6,2.2)$) rectangle
+      ($(wp6)+(1.6,-5.3)$);
+      \draw[draw=black!50!white, thick, rounded corners=5pt, fill=black!10!white] ($(wp3)+(-1.5,-1.2)$) rectangle
+    ($(wp6)+(1.5,2)$);
+    \node[yshift=0.0cm, text width=2cm, anchor=south] at ($(wp6.north)+(1.0,0.2)$) {WP2\\ Mathematical framework};
+    \node[text width=2cm, anchor=south] at ($(wp6.south)+(0.2,-4.5)$) {WP1 Management};
+  \end{pgfonlayer}
+ 
+  \draw[depends] (wp3.270) -- node[below,sloped]{implementation} (wp4.170);
+  \draw[depends] (wp4) -- node[above,sloped]{requirements} (wp3);
+  \draw[depends] (wp5.250) -- node[below,sloped]{implementation} (wp4.120);
+  \draw[depends] (wp4.60) -- node[below,sloped]{requirements} (wp5.290);
+  \draw[depends] (wp6.270) -- node[below,sloped]{use of tools} (wp4.10);
+  \draw[depends] (wp4) -- node[above,sloped]{testing} (wp6);
+  \draw[depends] (wp6.190) -- node[below,sloped, text width=2cm, text badly ragged]{combined selection functions} (wp5.350);
+  \draw[depends] (wp5.05) -- node[above,sloped]{validation} (wp6.175);
+  \draw[depends] (wp6.120) .. controls ($(wp5)+(0,1.9)$) .. node[above,sloped,pos=0.2]{selection function} (wp3.60);
+  \draw[depends] (wp3.40) .. controls ($(wp5)+(0,1.5)$) .. node[below,sloped,pos=0.3]{validation} (wp6.140);
+  \draw[depends] (wp5.190) -- node[below,sloped]{Gaia selection function} (wp3.350);
+  \draw[depends] (wp3.05) -- node[above,sloped]{inputs for R\&D} (wp5.175);
+\end{tikzpicture}
+\end{document}
