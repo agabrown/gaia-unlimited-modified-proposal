@@ -99,7 +99,7 @@
 \usepackage{marvosym}
 
 %% Extra package options
-\hypersetup{pdftitle={Who is In, and Who is Not? Determining the Gaia Survey Selection Function, GaiaUnlimited}, pdfsubject={RIA in SPACE-30-SCI-2020: Scientific data exploitation}, pdfauthor={A.G.A. Brown, H.W. Rix, M. Fouesneau, R. Drimmel, V. Belokurov, A. Casey, D. Hogg},
+\hypersetup{pdftitle={Who is In, and Who is Not? Determining the Gaia Survey Selection Function, GaiaUnlimited}, pdfsubject={H2020-SCI-30-2020 -- Proposal no. 101004110, Part B of Description of Action}, pdfauthor={A.G.A. Brown, H.W. Rix, M. Fouesneau, R. Drimmel, V. Belokurov, A. Casey, D. Hogg},
   hypertexnames=true, linkcolor=blue, anchorcolor=black,
   citecolor=blue, urlcolor=blue  
 }
@@ -111,6 +111,7 @@
 \include{journal-abbrevs}
 \newcommand\memo[1]{\textcolor{red}{\textbf{#1}}}
 % Duration of project in months. For now assumed 6 months preparation (hiring etc) and 36 months actual work.
+\newcommand\propnum{101004110}
 \newcommand\duration{42}
 \newcommand\acro{GaiaUnlimited}
 \newcommand\equref[1]{equation (\ref{#1})} 
@@ -139,7 +140,7 @@
 Who is In, and Who is Not? \\ Determining the Gaia Survey Selection Function}
 % ARC suggests: Completeness of the Cosmos?
 %               (obvious down-side is that there's no Gaia in the title)
-\shortname{\acro} 
+\shortname{\propnum\ \acro\ -- Part B} 
 \titlelogo{}{0.25} % file name and scale
 \fundingscheme{Research and Innovation Action}
 \topic{SPACE-30-SCI-2020: Scientific data exploitation}
@@ -181,12 +182,13 @@ Who is In, and Who is Not? \\ Determining the Gaia Survey Selection Function}
 
 \begin{document}
 
-\maketitle
+%\maketitle
 %\vspace{-4em}
 \renewcommand\contentsname{\normalsize Table of Contents \vspace{-4em}}
 \setlength{\cftbeforechapterskip}{1.0em plus 0.3em minus 0.1em}
 \renewcommand{\cftchapterbreak}{\addpenalty{-4000}}
-\makeparticipantstable          %for the ICT RIA proposals
+%\makeparticipantstable          %for the ICT RIA proposals
+\input{historyofchanges}
 \tableofcontents*               %for the ICT RIA proposals
 %\input{abstract}
 \thispagestyle{empty}
@@ -205,6 +207,7 @@ Who is In, and Who is Not? \\ Determining the Gaia Survey Selection Function}
 \input{members} % Section IV
 \input{ethics} % Section V
 
+\input{tables-for-labels}
 %\appendix
 
 %\input{appendix} % Appendix

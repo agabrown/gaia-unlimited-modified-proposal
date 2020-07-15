@@ -1,5 +1,5 @@
 %%
-%% h2020proposal.cls 2015/08/06 version V1.0
+%% h2020proposal-doa.cls 2015/08/06 version V1.0
 %%
 %% LaTeX class for writing EU H2020 RIA proposals.
 %% 

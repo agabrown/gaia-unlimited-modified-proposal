@@ -1,0 +1,56 @@
+% Keep all tables here and include at end of document. This is to preserve the labels
+% used for referencing. Otherwise would have to change all internal references to 
+% hard-coded versions.
+
+\makewplist
+\newpage
+
+\subsection*{Work package description}
+\label{sec:wps}
+
+\tablecaption{Description of work packages}
+\begin{supertabular}{p{\textwidth}}
+    \omit \tabularnewline
+\end{supertabular}
+\input{wp1-management}
+\input{wp2-defineselfun}
+\input{wp3-researchselfun}
+\input{wp4-implementselfun}
+\input{wp5-combineselfun}
+\input{wp6-scienceappl}
+
+\makedeliverablelist
+
+%%%%%%%%%%%%
+% MILESTONES
+%%%%%%%%%%%%
+
+\newpage
+\milestone[1]{Kick-off meeting}{Organized by {\acro} executive board}{WP\ref{wp:management}}
+\milestone[4]{Hiring of researchers}{Partners notify {\acro} executive board}{WP\ref{wp:management}}
+\milestone[12]{Document on mathematical formulation of selection function submitted to peer-reviewed journal}{Document approved by {\acro} executive board}{WP\ref{wp:selfundefinition}}
+\milestone[18]{Document describing the preliminary Gaia selection function.}{Document approved by {\acro} executive board}{WP\ref{wp:selfungaia}}
+\milestone[20]{Public prototype V1 of selection function implementation}{Software and data released and validated by user group}{WP\ref{wp:selfunimplementation}}
+\milestone[21]{Community workshop and mid-term meeting}{Organized by {\acro} executive board}{WP\ref{wp:management}}
+\milestone[31]{Public prototype V2 of selection function implementation}{Software and data released and validated by user group}{WP\ref{wp:selfunimplementation}}
+\milestone[32]{Community workshop}{Organized by {\acro} executive board}{WP\ref{wp:management}}
+\milestone[36]{Papers and documentation describing the Gaia and combined selection functions ready to submit to peer-reviewed journals}{Verified by {\acro} executive board}{WP\ref{wp:selfungaia}, \ref{wp:selfunimplementation}, \ref{wp:selfuncombine}}
+\milestone[41]{Closing meeting and community workshop}{Organized by {\acro} executive board}{WP\ref{wp:management}}
+\milestone[42]{Publicly available selection function implementation: open source tools, open access data, and a web-portal}{Software and data released and validated by user group}{WP\ref{wp:management}, \ref{wp:selfunimplementation}}
+
+\makemilestoneslist
+
+%%%%%%%
+% RISKS
+%%%%%%%
+\newpage
+\criticalrisk{Late recruitment of researchers. Medium}{WP\ref{wp:selfungaia}--\ref{wp:scienceappl}}{Six month preparatory phase added in schedule to accommodate early advertizing of open positions. Use professional network of {\acro} participants. Executive board will track recruitment.}
+\criticalrisk{Recruited researchers leaving early. Medium}{WP\ref{wp:selfungaia}--\ref{wp:scienceappl}}{Keep staff motivated, including through supporting career development. Coordinator and executive board will monitor the well-being of the personnel.}
+\criticalrisk{Unexpected complexity of tasks. High}{WP\ref{wp:selfungaia}--\ref{wp:scienceappl}}{Prioritize the {\acro} efforts and make timely decisions on dropping tasks deemed too complex.}
+\criticalrisk{Lack of information from DPAC. Low}{WP\ref{wp:selfungaia}--\ref{wp:selfuncombine}}{Several {\acro} team members are members of DPAC. Coordinator can identify alternative routes within DPAC to obtaining information.}
+\criticalrisk{Coordination problems with ESA and DPAC leading to the selection function data products not being available through ESA archives. Low}{WP\ref{wp:selfunimplementation}}{Plan for alternative distribution channels. Coordinator to maintain close connections to ESA and DPAC.}
+\criticalrisk{Delay of Gaia data releases. Can lead to difficulties in coordinating with DPAC/ESA (due to their prioritizing working on the releases). Medium}{WP\ref{wp:selfungaia}--\ref{wp:scienceappl}}{Coordinator to monitor the situation and agree mitigation measures with ESA/DPAC. We stress that even in the extremely unlikely case that no further Gaia data releases were to happen, the {\acro} effort will still have a major impact on the exploitation of the existing Gaia DR2 data.}
+
+\makerisklist
+
+\makesummaryofefforttable
