@@ -66,81 +66,81 @@
       \ganttbar[name=wp1t1]{WP1 T1.1}{1}{42} \ganttnewline
       \ganttbar[name=wp1t2]{WP1 T1.2}{1}{42} \ganttnewline
       \ganttbar[name=wp1t3]{WP1 T1.3}{1}{42} \ganttnewline
-      \ganttmilestone[name=ko]{Kick-off meeting}{0} \ganttnewline
       \ganttbar[name=adv]{Advertise positions}{1}{4} \ganttnewline
-      \ganttmilestone[name=hire]{Hiring of researchers}{4} \ganttnewline
-      \ganttmilestone[name=d21]{Doc.~mathematical formulation}{12} \\
-      \ganttmilestone[name=d31]{Doc.~preliminary Gaia sel.~fun.}{19} \\
-      \ganttmilestone[name=d41]{Public prototype implementation V1}{20} \\
-      \ganttmilestone[name=d14]{Community workshop \& Mid term meeting}{21} \\
-      \ganttmilestone[name=d44]{Public prototype implementation V2}{31} \\
-      \ganttmilestone[name=d16]{Community workshop}{32} \\
-      \ganttmilestone[name=d37]{Docs.~Gaia sel.~fun}{40} \\
-      \ganttmilestone[name=d17]{Community workshop \& closing meeting}{41} \\
-      \ganttmilestone[name=d46]{Public implementation and web-portal}{42} \\
-      \ganttlink[link mid=0.0]{ko}{adv}
-      \ganttlink[link mid=0.6]{adv}{hire}
-      \ganttlink[link mid=0.5]{d21}{d31}
-      \ganttlink[link mid=1.0]{ko}{d31}
-      \ganttlink[link mid=1.0]{ko}{d14}
-      \ganttlink[link mid=1.0]{ko}{d41}
-      \ganttlink[link mid=1.0]{ko}{d37}
-      \ganttlink[link mid=1.0]{ko}{d14}
-      \ganttlink[link mid=1.0]{ko}{d16}
-      \ganttlink[link mid=1.0]{ko}{d17}
-      \ganttlink[link mid=1.0]{ko}{d44}
-      \ganttlink[link mid=1.0]{ko}{d46}
-      \ganttlink{d31}{d41}
-      \ganttlink{d41}{d14}
-      \ganttlink{d14}{d44}
-      \ganttlink{d44}{d16}
-      \ganttlink{d16}{d37}
-      \ganttlink[link mid=0.3]{d37}{d17}
-      \ganttlink[link mid=0.0]{d37}{d46}
+      \ganttmilestone[name=m1ko]{Kick-off meeting}{0} \ganttnewline
+      \ganttmilestone[name=m2hire]{Hiring of researchers}{4} \ganttnewline
+      \ganttmilestone[name=m3d21]{Doc.~mathematical formulation}{12} \\
+      \ganttmilestone[name=m4d31]{Doc.~preliminary Gaia sel.~fun.}{19} \\
+      \ganttmilestone[name=m5d41]{Public prototype implementation V1}{20} \\
+      \ganttmilestone[name=m6d14]{Community workshop \& Mid term meeting}{21} \\
+      \ganttmilestone[name=m7d44]{Public prototype implementation V2}{31} \\
+      \ganttmilestone[name=m8d16]{Community workshop}{32} \\
+      \ganttmilestone[name=m9d37]{Docs.~Gaia sel.~fun}{40} \\
+      \ganttmilestone[name=m10d17]{Community workshop \& closing meeting}{41} \\
+      \ganttmilestone[name=m11d46]{Public implementation and web-portal}{42} \\
+      \ganttlink[link mid=0.0]{m1ko}{adv}
+      \ganttlink[link mid=0.6]{adv}{m2hire}
+      \ganttlink[link mid=0.5]{m3d21}{m4d31}
+      \ganttlink[link mid=1.0]{m1ko}{m4d31}
+      \ganttlink[link mid=1.0]{m1ko}{m6d14}
+      \ganttlink[link mid=1.0]{m1ko}{m5d41}
+      \ganttlink[link mid=1.0]{m1ko}{m9d37}
+      \ganttlink[link mid=1.0]{m1ko}{m6d14}
+      \ganttlink[link mid=1.0]{m1ko}{m8d16}
+      \ganttlink[link mid=1.0]{m1ko}{m10d17}
+      \ganttlink[link mid=1.0]{m1ko}{m7d44}
+      \ganttlink[link mid=1.0]{m1ko}{m11d46}
+      \ganttlink{m4d31}{m5d41}
+      \ganttlink{m5d41}{m6d14}
+      \ganttlink{m6d14}{m7d44}
+      \ganttlink{m7d44}{m8d16}
+      \ganttlink{m8d16}{m9d37}
+      \ganttlink[link mid=0.3]{m9d37}{m10d17}
+      \ganttlink[link mid=0.0]{m9d37}{m11d46}
       \ganttgroup{WP2 Selection function definition}{1}{12} \ganttnewline
       \ganttbar[name=wp2t1]{WP2 T2.1}{1}{12} \ganttnewline
       \ganttbar[name=wp2t2]{WP2 T2.2}{1}{12} \ganttnewline
-      \ganttlink[link mid=0.0]{ko}{wp2t1}
-      \ganttlink[link mid=0.0]{ko}{wp2t2}
-      \ganttlink[link mid=0.5]{wp2t1}{d21}
+      \ganttlink[link mid=0.0]{m1ko}{wp2t1}
+      \ganttlink[link mid=0.0]{m1ko}{wp2t2}
+      \ganttlink[link mid=0.5]{wp2t1}{m3d21}
       \ganttgroup{WP3 R\&D selection function}{1}{42} \ganttnewline
       \ganttbar[name=wp3t1]{WP3 T3.1}{1}{42} \ganttnewline
       \ganttbar[name=wp3t2]{WP3 T3.2}{6}{42} \ganttnewline
       \ganttbar[name=wp3t3]{WP3 T3.3}{6}{42} \ganttnewline
       \ganttbar[name=wp3t4]{WP3 T3.4}{6}{42} \ganttnewline
       \ganttbar[name=wp3t5]{WP3 T3.5}{6}{42} \ganttnewline
-      \ganttlink[link mid=0.0]{ko}{wp3t1}
-      \ganttlink[link mid=0.0]{hire}{wp3t2}
-      \ganttlink[link mid=0.0]{hire}{wp3t3}
-      \ganttlink[link mid=0.0]{hire}{wp3t4}
-      \ganttlink[link mid=0.0]{hire}{wp3t5}
+      \ganttlink[link mid=0.0]{m1ko}{wp3t1}
+      \ganttlink[link mid=0.0]{m2hire}{wp3t2}
+      \ganttlink[link mid=0.0]{m2hire}{wp3t3}
+      \ganttlink[link mid=0.0]{m2hire}{wp3t4}
+      \ganttlink[link mid=0.0]{m2hire}{wp3t5}
       \ganttgroup{WP4 Implement selection function}{1}{42} \ganttnewline
       \ganttbar[name=wp4t1]{WP4 T4.1}{1}{42} \ganttnewline
       \ganttbar[name=wp4t2]{WP4 T4.2}{6}{42} \ganttnewline
       \ganttbar[name=wp4t3]{WP4 T4.3}{6}{42} \ganttnewline
       \ganttbar[name=wp4t4]{WP4 T4.4}{6}{42} \ganttnewline
-      \ganttlink[link mid=0.0]{ko}{wp4t1}
-      \ganttlink[link mid=0.0]{hire}{wp4t2}
-      \ganttlink[link mid=0.0]{hire}{wp4t3}
-      \ganttlink[link mid=0.0]{hire}{wp4t4}
+      \ganttlink[link mid=0.0]{m1ko}{wp4t1}
+      \ganttlink[link mid=0.0]{m2hire}{wp4t2}
+      \ganttlink[link mid=0.0]{m2hire}{wp4t3}
+      \ganttlink[link mid=0.0]{m2hire}{wp4t4}
       \ganttgroup{WP5 Combined selection functions}{1}{42} \ganttnewline
       \ganttbar[name=wp5t1]{WP5 T5.1}{1}{42} \ganttnewline
       \ganttbar[name=wp5t2]{WP5 T5.2}{6}{42} \ganttnewline
       \ganttbar[name=wp5t3]{WP5 T5.3}{6}{42} \ganttnewline
-      \ganttlink[link mid=0.0]{ko}{wp5t1}
-      \ganttlink[link mid=0.0]{hire}{wp5t2}
-      \ganttlink[link mid=0.0]{hire}{wp5t3}
+      \ganttlink[link mid=0.0]{m1ko}{wp5t1}
+      \ganttlink[link mid=0.0]{m2hire}{wp5t2}
+      \ganttlink[link mid=0.0]{m2hire}{wp5t3}
       \ganttgroup{WP6 Science applications}{1}{42} \ganttnewline
       \ganttbar[name=wp6t1]{WP6 T6.1}{1}{42} \ganttnewline
       \ganttbar[name=wp6t2]{WP6 T6.2}{6}{42} \ganttnewline
       \ganttbar[name=wp6t3]{WP6 T6.3}{6}{42} \ganttnewline
       \ganttbar[name=wp6t4]{WP6 T6.4}{6}{42} \ganttnewline
       \ganttbar[name=wp6t5]{WP6 T6.5}{6}{42}
-      \ganttlink[link mid=0.0]{ko}{wp6t1}
-      \ganttlink[link mid=0.0]{hire}{wp6t2}
-      \ganttlink[link mid=0.0]{hire}{wp6t3}
-      \ganttlink[link mid=0.0]{hire}{wp6t4}
-      \ganttlink[link mid=0.0]{hire}{wp6t5}
+      \ganttlink[link mid=0.0]{m1ko}{wp6t1}
+      \ganttlink[link mid=0.0]{m2hire}{wp6t2}
+      \ganttlink[link mid=0.0]{m2hire}{wp6t3}
+      \ganttlink[link mid=0.0]{m2hire}{wp6t4}
+      \ganttlink[link mid=0.0]{m2hire}{wp6t5}
   \end{ganttchart}
 
 \end{document}
