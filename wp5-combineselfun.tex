@@ -29,7 +29,7 @@
     % syntax: \wptask{leader}{contributors}{start-m}{end-m}{title}{description}   
     \wptask{MPIA}{MPIA}{1}{\duration}{Work package management}{
       \label{task:wp5coordination}
-      Management and coordination of the research and development of the combined selection function and coordination of writing the paper corresponding to deliverable \ref{dev:wp5finalreport}. This includes planning the work to be done, assigning sub-tasks and organizing the necessary meetings to discuss progress. 
+      Management and coordination of the research and development of the combined selection function and coordination of writing the paper corresponding to deliverables \ref{dev:wp5photofinal} and \ref{dev:wp5spectrofinal}. This includes planning the work to be done, assigning sub-tasks and organizing the necessary meetings to discuss progress. 
       
       \textsf{2 MPIA person months}
     }
@@ -57,8 +57,13 @@
   \begin{wpdeliverables}
     % \wpdeliverable[date]{R}{PU}{A report on \ldots}
     \wpdeliverable[19]{MPIA}{R}{PU}{Report documenting the preliminary version of the combination of Gaia and a large photometric survey.}\label{dev:wp5v1}
+    \wpdeliverable[19]{MPIA}{DEM}{PU}{Prototype software modules and data for the preliminary implementation of the combination of Gaia and a large photometric survey in Prototype V1.}\label{dev:wp5v1code}
     \wpdeliverable[30]{MPIA}{R}{PU}{Report documenting the preliminary version the combination of Gaia and a large spectroscopic survey.}\label{dev:wp5v2}
-    \wpdeliverable[\duration]{MPIA}{R}{PU}{Report documenting the methods to construct combined selection functions, to be submitted to peer-reviewed journal.}\label{dev:wp5finalreport}
+    \wpdeliverable[30]{MPIA}{DEM}{PU}{Prototype software modules and data for the preliminary implementation of the combination of Gaia and a large spectroscopic survey in Prototype V2.}\label{dev:wp5v2code}
+    \wpdeliverable[40]{MPIA}{R}{PU}{Report documenting the methods to construct combined selection functions for Gaia and photometric surveys, to be submitted to peer-reviewed journal.}\label{dev:wp5photofinal}
+    \wpdeliverable[40]{MPIA}{OTHER}{PU}{Software modules and data for the final implementation of the combination of Gaia and a large photometric survey.}\label{dev:wp5photocode}
+    \wpdeliverable[40]{MPIA}{R}{PU}{Report documenting the methods to construct combined selection functions for Gaia and spectroscopic surveys, to be submitted to peer-reviewed journal.}\label{dev:wp5spectrofinal}
+    \wpdeliverable[40]{MPIA}{OTHER}{PU}{Software modules and data for the final implementation of the combination of Gaia and a large spectroscopic survey.}\label{dev:wp5spectrocode}
   \end{wpdeliverables}
 
 \end{workpackage}
