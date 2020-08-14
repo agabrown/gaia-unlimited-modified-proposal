@@ -1,40 +1,116 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% TeX file gaiaunlimited-gantt.tex
+% TeX file gaiaunlimited-gantt-deliverables.tex
 % Uses: pgfgantt package
-% Last Updated:  2020.08.13
+% Last Updated:  2020.08.14
 % First Created: 2020.02.23
 %
 % Title: GaiaUnlimited Gantt chart.
 %
-% Description: Graphic that shows the time line of the work plan for GaiaUnlimited.
+% Description: Graphic that shows the time line of the work plan for GaiaUnlimited. 
+%              THIS VERSION includes the deliverables.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[article,a4paper,11pt,]{memoir}
+\documentclass[article,a1paper,11pt,]{memoir}
 \usepackage{pgfgantt}
 \usepackage{geometry,hyperref}
 \geometry{hmargin=5pt,vmargin=5pt}
 
 \hypersetup{pdftitle={GaiaUnlimited Gantt chart},
-            pdfsubject={Graphic that the time line of the work plan for GaiaUnlimited},
-            pdfauthor=Anthony Brown}
+pdfsubject={Graphic that the time line of the work plan for GaiaUnlimited. This version with deliverables},
+pdfauthor=Anthony Brown}
 
 \xdefinecolor{ElsaBlue}{rgb}{0.16, 0.16, 0.66}
 \xdefinecolor{mptab10blue}{rgb}{0.12156862745098039, 0.4666666666666667, 0.7058823529411765}
 \xdefinecolor{mptab10cyan}{rgb}{0.09019607843137255, 0.7450980392156863, 0.8117647058823529}
+\xdefinecolor{mptab10orange}{rgb}{1.0, 0.4980392156862745, 0.054901960784313725}
+
+\newganttchartelement*{deliverable}{%
+    deliverable/.style={%
+        shape=ganttmilestone, inner sep=0pt, draw=mptab10orange, fill=none, very thick%
+    },%
+    deliverable incomplete/.style={/pgfgantt/deliverable, draw=mptab10orange!25},%
+    deliverable label text=\strut#1,%
+    deliverable label font=\small\sffamily,%
+    deliverable label node/.style={%
+        anchor=east, font=\ganttvalueof{deliverable label font}%
+    },%
+    deliverable inline label anchor=center,%
+    deliverable inline label node/.style={%
+        anchor=south, font=\ganttvalueof{deliverable label font}%
+    },%
+    deliverable progress label anchor=center,%
+    deliverable progress label font=\scriptsize,%
+    deliverable progress label node/.style={%
+        anchor=west, font=\ganttvalueof{deliverable progress label font}%
+    },%
+    deliverable left shift=.6,%
+    deliverable right shift=.4,%
+    deliverable top shift=.3,%
+    deliverable height=.4%
+}
+
+\newganttlinktype{ldr}{
+    \ganttsetstartanchor{west}
+    \ganttsetendanchor{west}
+    \draw [/pgfgantt/link]
+    (\xLeft, \yUpper) --
+    (\xLeft-\ganttvalueof{link bulge} * \ganttvalueof{x unit}, \yUpper) --
+    (\xLeft-\ganttvalueof{link bulge} * \ganttvalueof{x unit}, \yLower) --
+    (\xRight, \yLower);
+}
+
+\newganttlinktype{rdl}{
+    \ganttsetstartanchor{east}
+    \ganttsetendanchor{east}
+    \draw [/pgfgantt/link]
+    (\xLeft, \yUpper) --
+    (\xLeft+\ganttvalueof{link bulge} * \ganttvalueof{x unit}, \yUpper) --
+    (\xLeft+\ganttvalueof{link bulge} * \ganttvalueof{x unit}, \yLower) --
+    (\xRight, \yLower);
+}
+
+\newganttlinktype{rd}{%
+    \ganttsetstartanchor{east}%
+    \ganttsetendanchor{north}%
+    \draw [/pgfgantt/link]
+    (\xLeft, \yUpper) --
+    (\xRight, \yUpper) --
+    (\xRight, \yLower);
+}
+
+\newganttlinktype{mydr}{%
+    \ganttsetstartanchor{south}%
+    \ganttsetendanchor{west}%
+    \draw [/pgfgantt/link]
+    (\xLeft, \yUpper) --
+    (\xLeft, \yLower) --
+    (\xRight, \yLower);%
+}
+
+\newganttlinktype{rdrtop}{
+    \ganttsetendanchor{north}
+    \draw [/pgfgantt/link]
+    (\xLeft, \yUpper) --
+    ($(\xLeft, \yUpper)!\ganttvalueof{link mid}!
+    (\xRight, \yUpper)$) --
+    ($(\xLeft, \yLower)!\ganttvalueof{link mid}!
+    (\xRight, \yLower)$) --
+    (\xRight, \yLower);
+}
 
 \begin{document}
-  \centering
+\centering
 
-  \begin{ganttchart}[
-          canvas/.append style={draw=none},
-          y unit title=0.4cm,
-          y unit chart=0.6cm,
-          x unit=0.3cm,
-          vgrid,
-          title/.append style={draw=none, fill=ElsaBlue!50!black},
-          title label font=\sffamily\bfseries\color{white},
+\begin{ganttchart}[
+        canvas/.append style={draw=none},
+        y unit title=0.6cm,
+        y unit chart=0.8cm,
+        x unit=0.4cm,
+        vgrid,
+        title/.append style={draw=none, fill=ElsaBlue!50!black},
+        title label font=\sffamily\bfseries\color{white},
           title label node/.append style={below=-2.0ex},
           title left shift=.05,
           title right shift=-.05,
@@ -44,14 +120,14 @@
           bar label font=\small,
           group label node/.append style={left=0cm},
           group label font=\bfseries\small,
-          milestone label font=\sffamily\small,
-      ]{0}{43}
+          milestone label font=\bfseries\sffamily\small,
+      ]{0}{44}
       \gantttitle{ }{1}
       \gantttitle{Year 1}{12}
       \gantttitle{Year 3}{12}
       \gantttitle{Year 2}{12}
       \gantttitle{Year 4}{6}
-      \gantttitle{ }{1} \\
+      \gantttitle{ }{2} \\
       \gantttitle{ }{1}
       \gantttitle{H1}{6}
       \gantttitle{H2}{6}
@@ -60,87 +136,193 @@
       \gantttitle{H1}{6}
       \gantttitle{H2}{6}
       \gantttitle{H1}{6} 
-      \gantttitle{ }{1} \\
+      \gantttitle{ }{2} \\
       \ganttgroup{GaiaUnlimited}{1}{42} \ganttnewline
       \ganttgroup{WP1 Management}{1}{42} \ganttnewline
       \ganttbar[name=wp1t1]{WP1 T1.1}{1}{42} \ganttnewline
       \ganttbar[name=wp1t2]{WP1 T1.2}{1}{42} \ganttnewline
       \ganttbar[name=wp1t3]{WP1 T1.3}{1}{42} \ganttnewline
       \ganttbar[name=adv]{Advertise positions}{1}{4} \ganttnewline
-      \ganttmilestone[name=m1ko]{Kick-off meeting}{0} \ganttnewline
-      \ganttmilestone[name=m2hire]{Hiring of researchers}{4} \ganttnewline
-      \ganttmilestone[name=m3d21]{Doc.~mathematical formulation}{12} \\
-      \ganttmilestone[name=m4d31]{Doc.~preliminary Gaia sel.~fun.}{19} \\
-      \ganttmilestone[name=m5d41]{Public prototype implementation V1}{20} \\
-      \ganttmilestone[name=m6d14]{Community workshop \& Mid term meeting}{21} \\
-      \ganttmilestone[name=m7d44]{Public prototype implementation V2}{31} \\
-      \ganttmilestone[name=m8d16]{Community workshop}{32} \\
-      \ganttmilestone[name=m9d37]{Docs.~Gaia sel.~fun}{40} \\
-      \ganttmilestone[name=m10d17]{Community workshop \& closing meeting}{41} \\
-      \ganttmilestone[name=m11d46]{Public implementation and web-portal}{42} \\
-      \ganttlink[link mid=0.0]{m1ko}{adv}
-      \ganttlink[link mid=0.6]{adv}{m2hire}
-      \ganttlink[link mid=0.5]{m3d21}{m4d31}
-      \ganttlink[link mid=1.0]{m1ko}{m4d31}
-      \ganttlink[link mid=1.0]{m1ko}{m6d14}
-      \ganttlink[link mid=1.0]{m1ko}{m5d41}
-      \ganttlink[link mid=1.0]{m1ko}{m9d37}
-      \ganttlink[link mid=1.0]{m1ko}{m6d14}
-      \ganttlink[link mid=1.0]{m1ko}{m8d16}
-      \ganttlink[link mid=1.0]{m1ko}{m10d17}
-      \ganttlink[link mid=1.0]{m1ko}{m7d44}
-      \ganttlink[link mid=1.0]{m1ko}{m11d46}
-      \ganttlink{m4d31}{m5d41}
-      \ganttlink{m5d41}{m6d14}
-      \ganttlink{m6d14}{m7d44}
-      \ganttlink{m7d44}{m8d16}
-      \ganttlink{m8d16}{m9d37}
-      \ganttlink[link mid=0.3]{m9d37}{m10d17}
-      \ganttlink[link mid=0.0]{m9d37}{m11d46}
+      \ganttdeliverable[name=d1p1]{D1.1 Kick-off meeting}{0} \ganttnewline
+      \ganttdeliverable[name=d1p2]{D1.2 Data management plan}{6} \ganttnewline
+      \ganttdeliverable[name=d1p3]{D1.3 Community workshop \& Mid term meeting}{21} \ganttnewline
+      \ganttdeliverable[name=d1p4]{D1.4 Community feedback report 1}{22} \ganttnewline
+      \ganttdeliverable[name=d1p5]{D1.5 Community workshop}{32} \ganttnewline
+      \ganttdeliverable[name=d1p6]{D1.6 Community feedback report 2}{33} \ganttnewline
+      \ganttdeliverable[name=d1p7]{D1.7 Community workshop \& Closing meeting}{41} \ganttnewline
+      \ganttmilestone[name=m1]{M1 Kick-off meeting}{0} \ganttnewline
+      \ganttmilestone[name=m2]{M2 Hiring of researchers}{4} \ganttnewline
+      \ganttmilestone[name=m3]{M3 Doc.~mathematical formulation}{12} \ganttnewline
+      \ganttmilestone[name=m4]{M4 Doc.~preliminary Gaia sel.~fun.}{19} \ganttnewline
+      \ganttmilestone[name=m5]{M5 Public prototype implementation V1}{20} \ganttnewline
+      \ganttmilestone[name=m6]{M6 Community workshop \& Mid term meeting}{21} \ganttnewline
+      \ganttmilestone[name=m7]{M7 Public prototype implementation V2}{31} \ganttnewline
+      \ganttmilestone[name=m8]{M8 Community workshop}{32} \ganttnewline
+      \ganttmilestone[name=m9]{M9 Docs.~Gaia sel.~fun}{40} \ganttnewline
+      \ganttmilestone[name=m10]{M10 Community workshop \& closing meeting}{41} \ganttnewline
+      \ganttmilestone[name=m11]{M11 Public implementation and web-portal}{42} \ganttnewline
+      
       \ganttgroup{WP2 Selection function definition}{1}{12} \ganttnewline
       \ganttbar[name=wp2t1]{WP2 T2.1}{1}{12} \ganttnewline
       \ganttbar[name=wp2t2]{WP2 T2.2}{1}{12} \ganttnewline
-      \ganttlink[link mid=0.0]{m1ko}{wp2t1}
-      \ganttlink[link mid=0.0]{m1ko}{wp2t2}
-      \ganttlink[link mid=0.5]{wp2t1}{m3d21}
+      \ganttdeliverable[name=d2p1]{D2.1 Doc.~mathematical formulation}{12} \ganttnewline
+      \ganttlink[link mid=0.0]{m1}{wp2t1}
+      \ganttlink[link mid=0.0]{m1}{wp2t2}
+      \ganttlink[link mid=0.5]{wp2t2}{d2p1}
+      
       \ganttgroup{WP3 R\&D selection function}{1}{42} \ganttnewline
       \ganttbar[name=wp3t1]{WP3 T3.1}{1}{42} \ganttnewline
       \ganttbar[name=wp3t2]{WP3 T3.2}{6}{42} \ganttnewline
       \ganttbar[name=wp3t3]{WP3 T3.3}{6}{42} \ganttnewline
       \ganttbar[name=wp3t4]{WP3 T3.4}{6}{42} \ganttnewline
       \ganttbar[name=wp3t5]{WP3 T3.5}{6}{42} \ganttnewline
-      \ganttlink[link mid=0.0]{m1ko}{wp3t1}
-      \ganttlink[link mid=0.0]{m2hire}{wp3t2}
-      \ganttlink[link mid=0.0]{m2hire}{wp3t3}
-      \ganttlink[link mid=0.0]{m2hire}{wp3t4}
-      \ganttlink[link mid=0.0]{m2hire}{wp3t5}
+      \ganttdeliverable[name=d3p1]{D3.1 Doc.~prelim.~top level sel.~fun.}{19} \ganttnewline
+      \ganttdeliverable[name=d3p2]{D3.2 SW/data prelim.~top level sel.~fun.}{19} \ganttnewline
+      \ganttdeliverable[name=d3p3]{D3.3 Doc.~prelim.~spectroscopic sel.~fun.}{30} \ganttnewline
+      \ganttdeliverable[name=d3p4]{D3.4 SW/data prelim.~spectroscopic sel.~fun.}{30} \ganttnewline
+      \ganttdeliverable[name=d3p5]{D3.5 Doc.~prelim.~specialized sel.~fun.}{30} \ganttnewline
+      \ganttdeliverable[name=d3p6]{D3.6 SW/data prelim.~specialized sel.~fun.}{30} \ganttnewline
+      \ganttdeliverable[name=d3p7]{D3.7 Doc.~top level sel.~fun.}{40} \ganttnewline
+      \ganttdeliverable[name=d3p8]{D3.8 SW/data top level sel.~fun.}{40} \ganttnewline
+      \ganttdeliverable[name=d3p9]{D3.9 Doc.~spectroscopic sel.~fun.}{40} \ganttnewline
+      \ganttdeliverable[name=d3p10]{D3.10 SW/data spectroscopic sel.~fun.}{40} \ganttnewline
+      \ganttdeliverable[name=d3p11]{D3.11 Doc.~specialized sel.~fun.}{40} \ganttnewline
+      \ganttdeliverable[name=d3p12]{D3.12 SW/data specialized sel.~fun.}{40} \ganttnewline
+      \ganttlink[link mid=0.0]{m1}{wp3t1}
+      \ganttlink[link mid=0.0]{m2}{wp3t2}
+      \ganttlink[link mid=0.0]{m2}{wp3t3}
+      \ganttlink[link mid=0.0]{m2}{wp3t4}
+      \ganttlink[link mid=0.0]{m2}{wp3t5}
+      
       \ganttgroup{WP4 Implement selection function}{1}{42} \ganttnewline
       \ganttbar[name=wp4t1]{WP4 T4.1}{1}{42} \ganttnewline
       \ganttbar[name=wp4t2]{WP4 T4.2}{6}{42} \ganttnewline
       \ganttbar[name=wp4t3]{WP4 T4.3}{6}{42} \ganttnewline
       \ganttbar[name=wp4t4]{WP4 T4.4}{6}{42} \ganttnewline
-      \ganttlink[link mid=0.0]{m1ko}{wp4t1}
-      \ganttlink[link mid=0.0]{m2hire}{wp4t2}
-      \ganttlink[link mid=0.0]{m2hire}{wp4t3}
-      \ganttlink[link mid=0.0]{m2hire}{wp4t4}
+      \ganttdeliverable[name=d4p1]{D4.1 Web portal V1}{6} \ganttnewline
+      \ganttdeliverable[name=d4p2]{D4.2 prototype V1}{20} \ganttnewline
+      \ganttdeliverable[name=d4p3]{D4.3 Web portal V2}{20} \ganttnewline
+      \ganttdeliverable[name=d4p4]{D4.4 prototype V2}{31} \ganttnewline
+      \ganttdeliverable[name=d4p5]{D4.5 Web portal V3}{31} \ganttnewline
+      \ganttdeliverable[name=d4p6]{D4.6 Open source/data GaiaUnlimited tools}{42} \ganttnewline
+      \ganttdeliverable[name=d4p7]{D4.7 GaiaUnlimited web portal}{42} \ganttnewline
+      \ganttlink[link mid=0.0]{m1}{wp4t1}
+      \ganttlink[link mid=0.0]{m1}{wp4t1}
+      \ganttlink[link mid=0.0]{m2}{wp4t2}
+      \ganttlink[link mid=0.0]{m2}{wp4t3}
+      \ganttlink[link mid=0.0]{m2}{wp4t4}
+      
       \ganttgroup{WP5 Combined selection functions}{1}{42} \ganttnewline
       \ganttbar[name=wp5t1]{WP5 T5.1}{1}{42} \ganttnewline
       \ganttbar[name=wp5t2]{WP5 T5.2}{6}{42} \ganttnewline
       \ganttbar[name=wp5t3]{WP5 T5.3}{6}{42} \ganttnewline
-      \ganttlink[link mid=0.0]{m1ko}{wp5t1}
-      \ganttlink[link mid=0.0]{m2hire}{wp5t2}
-      \ganttlink[link mid=0.0]{m2hire}{wp5t3}
+      \ganttdeliverable[name=d5p1]{D5.1 Doc.~prelim.~Gaia+phot.~sel.~fun.}{19} \ganttnewline
+      \ganttdeliverable[name=d5p2]{D5.2 SW/data prelim.~Gaia+phot.~sel.~fun.}{19} \ganttnewline
+      \ganttdeliverable[name=d5p3]{D5.3 Doc.~prelim.~Gaia+spectr.~sel.~fun.}{30} \ganttnewline
+      \ganttdeliverable[name=d5p4]{D5.4 SW/data prelim.~Gaia+spectr.~sel.~fun.}{30} \ganttnewline
+      \ganttdeliverable[name=d5p5]{D5.5 Doc.~Gaia+phot.~sel.~fun.}{40} \ganttnewline
+      \ganttdeliverable[name=d5p6]{D5.6 SW/data Gaia+phot.~sel.~fun.}{40} \ganttnewline
+      \ganttdeliverable[name=d5p7]{D5.7 Doc.~Gaia+spectr.~sel.~fun.}{40} \ganttnewline
+      \ganttdeliverable[name=d5p8]{D5.8 SW/data Gaia+spectr.~sel.~fun.}{40} \ganttnewline
+      \ganttlink[link mid=0.0]{m1}{wp5t1}
+      \ganttlink[link mid=0.0]{m2}{wp5t2}
+      \ganttlink[link mid=0.0]{m2}{wp5t3}
+      
       \ganttgroup{WP6 Science applications}{1}{42} \ganttnewline
       \ganttbar[name=wp6t1]{WP6 T6.1}{1}{42} \ganttnewline
       \ganttbar[name=wp6t2]{WP6 T6.2}{6}{42} \ganttnewline
+      \ganttdeliverable[name=d6p1]{D6.1 Paper on science appl.~A}{42} \ganttnewline
       \ganttbar[name=wp6t3]{WP6 T6.3}{6}{42} \ganttnewline
+      \ganttdeliverable[name=d6p2]{D6.2 Paper on science appl.~B}{42} \ganttnewline
       \ganttbar[name=wp6t4]{WP6 T6.4}{6}{42} \ganttnewline
-      \ganttbar[name=wp6t5]{WP6 T6.5}{6}{42}
-      \ganttlink[link mid=0.0]{m1ko}{wp6t1}
-      \ganttlink[link mid=0.0]{m2hire}{wp6t2}
-      \ganttlink[link mid=0.0]{m2hire}{wp6t3}
-      \ganttlink[link mid=0.0]{m2hire}{wp6t4}
-      \ganttlink[link mid=0.0]{m2hire}{wp6t5}
+      \ganttdeliverable[name=d6p3]{D6.3 Paper on science appl.~C}{42} \ganttnewline
+      \ganttbar[name=wp6t5]{WP6 T6.5}{6}{42} \ganttnewline
+      \ganttdeliverable[name=d6p4]{D6.4 Paper on science appl.~D}{42}
+      \ganttlink[link mid=0.0]{m1}{wp6t1}
+      \ganttlink[link mid=0.0]{m2}{wp6t2}
+      \ganttlink[link mid=0.0]{m2}{wp6t3}
+      \ganttlink[link mid=0.0]{m2}{wp6t4}
+      \ganttlink[link mid=0.0]{m2}{wp6t5}
+
+      \ganttlink[link mid=0.5]{d1p1}{m1}
+      \ganttlink[link mid=1.0]{m1}{m2}
+      \ganttlink[link mid=1.0]{d1p1}{d1p2}
+      \ganttlink[link mid=0.2]{d1p2}{d4p1}
+      \ganttlink[link mid=0.5]{d2p1}{m3}
+      \ganttlink[link mid=0.5]{d3p1}{m4}
+      \ganttlink[link mid=0.7]{d5p1}{m4}
+      \ganttlink[link type=ldr]{d3p2}{d4p2}
+      \ganttlink[link type=ldr]{d5p2}{d4p2}
+      \ganttlink[link mid=0.5, link bulge=0.2]{d4p2}{d4p3}
+      \ganttlink[link mid=0.7]{d4p3}{m5}
+      \ganttlink[link mid=0.5, link bulge=0.2]{d1p3}{m6}
+      \ganttlink[link type=rd]{d1p3}{d1p4}
+      \ganttlink[link mid=0.5, link type=rdrtop]{d1p4}{d3p3}
+      \ganttlink[link mid=0.5]{d1p4}{d3p4}
+      \ganttlink[link mid=0.5, link type=rdrtop]{d1p4}{d3p5}
+      \ganttlink[link mid=0.5]{d1p4}{d3p6}
+      \ganttlink[link bulge=0.5]{d3p4}{d4p4}
+      \ganttlink[link bulge=0.5]{d3p6}{d4p4}
+      \ganttlink[link type=ldr, link bulge=0.8]{d3p3}{d4p5}
+      \ganttlink[link type=ldr, link bulge=0.8]{d3p5}{d4p5}
+      \ganttlink[link mid=0.5, link bulge=0.2]{d4p4}{d4p5}
+      \ganttlink[link mid=0.5]{d5p3}{d4p5}
+      \ganttlink[link type=ldr]{d5p4}{d4p4}
+      \ganttlink[link mid=0.5, link type=rdrtop]{d1p4}{d5p3}
+      \ganttlink[link mid=0.5, link type=rdrtop]{d1p4}{d5p4}
+      \ganttlink[link mid=0.7]{d4p5}{m7}
+      \ganttlink[link mid=0.5, link bulge=0.2]{d1p5}{m8}
+      \ganttlink[link type=rd]{d1p5}{d1p6}
+      \ganttlink[link type=rdl]{d1p7}{m10}
+      \ganttlink[link mid=0.5, link bulge=0.2]{d4p6}{d4p7}
+      \ganttlink[link mid=0.9]{d4p7}{m11}
+      \ganttlink[link mid=0.5, link type=rdrtop]{d1p6}{d3p7}
+      \ganttlink[link mid=0.5]{d1p6}{d3p8}
+      \ganttlink[link mid=0.5, link type=rdrtop]{d1p6}{d3p9}
+      \ganttlink[link mid=0.5]{d1p6}{d3p10}
+      \ganttlink[link mid=0.5, link type=rdrtop]{d1p6}{d3p11}
+      \ganttlink[link mid=0.5]{d1p6}{d3p12}
+      \ganttlink[link mid=0.5]{d1p6}{d5p5}
+      \ganttlink[link mid=0.5, link type=rdrtop]{d1p6}{d5p6}
+      \ganttlink[link mid=0.5]{d1p6}{d5p7}
+      \ganttlink[link mid=0.5, link type=rdrtop]{d1p6}{d5p8}
+
+      \ganttlink[link type=rd]{d3p8}{d4p6}
+      \ganttlink[link type=rd]{d3p10}{d4p6}
+      \ganttlink[link type=rd]{d3p12}{d4p6}
+      \ganttlink[link type=ldr, link bulge=0.8]{d5p6}{d4p6}
+      \ganttlink[link type=ldr, link bulge=0.8]{d5p8}{d4p6}
+
+      \ganttlink[link mid=0.5]{d3p7}{m9}
+      \ganttlink[link mid=0.5]{d3p9}{m9}
+      \ganttlink[link mid=0.5]{d3p11}{m9}
+      \ganttlink[link mid=0.65, link bulge=0.3]{d5p5}{m9}
+      \ganttlink[link mid=0.65, link bulge=0.3]{d5p7}{m9}
+      
+      \ganttlink[link mid=0.5]{wp6t2}{d6p1}
+      \ganttlink[link mid=0.5]{wp6t3}{d6p2}
+      \ganttlink[link mid=0.5]{wp6t4}{d6p3}
+      \ganttlink[link mid=0.5]{wp6t5}{d6p4}
+
+      \ganttlink[link mid=0.0]{m1}{adv}
+      \ganttlink[link mid=0.6]{adv}{m2}
+      \ganttlink[link type=rd]{m3}{m4}
+%      \ganttlink[link mid=1.0]{m1}{m4}
+%      \ganttlink[link mid=1.0]{m1}{m6}
+%      \ganttlink[link mid=1.0]{m1}{m5}
+%      \ganttlink[link mid=1.0]{m1}{m9}
+%      \ganttlink[link mid=1.0]{m1}{m6}
+%      \ganttlink[link mid=1.0]{m1}{m8}
+%      \ganttlink[link mid=1.0]{m1}{m10}
+%      \ganttlink[link mid=1.0]{m1}{m7}
+%      \ganttlink[link mid=1.0]{m1}{m11}
+      \ganttlink[link type=rd]{m4}{m5}
+      \ganttlink[link type=rd]{m5}{m6}
+      \ganttlink[link type=rd]{m6}{m7}
+      \ganttlink[link type=rd]{m7}{m8}
+      \ganttlink[link type=rd]{m8}{m9}
+      \ganttlink[link type=rd]{m9}{m10}
+      \ganttlink[link type=mydr]{m9}{m11}
   \end{ganttchart}
 
 \end{document}
