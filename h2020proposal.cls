@@ -101,12 +101,17 @@
 \copypagestyle{proposal}{ruled}
 
 %Page Footers
-\makeevenfoot{proposal}{ \@shortname }{ \thepage }{ \date{\today} }
-\makeoddfoot{proposal}{ \@shortname }{ \thepage }{ \date{\today} }
+\makeevenfoot{proposal}{ \@shortname }{\hfill \thepage }{ \date{\today} }
+\makeoddfoot{proposal}{ \@shortname }{\hfill \thepage }{ \date{\today} }
 
 % Page Headers
 \makeoddhead{proposal}{\disptoken{@acronym}}{}{\rightmark}
 \makeevenhead{proposal}{\leftmark}{}{\disptoken{@acronym}}
+
+% pagestyle for history/toc page
+\copypagestyle{histtoc}{empty}
+\makeevenfoot{histtoc}{ \@shortname }{\hfill \thepage }{ \date{\today} }
+\makeoddfoot{histtoc}{ \@shortname }{\hfill \thepage }{ \date{\today} }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Main Proposal Information 
