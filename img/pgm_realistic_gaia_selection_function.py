@@ -40,7 +40,7 @@ pgm.add_node(daft.Node("sourceAPs", "Source\nastrophysical\nparameters", 10.5, 7
 
 pgm.add_node(daft.Node("scanlaw", "Actual\nscan law", 5, 9, fixed=True))
 pgm.add_node(daft.Node("events", "S/C+Payload\noutages", 4, 9, fixed=True))
-pgm.add_node(daft.Node("fovhist", "FoV\nhistory", 4.5, 8, fixed=True, offset=(0,-40)))
+pgm.add_node(daft.Node("fovhist", "FoV pointing\nhistory", 4.5, 8, fixed=True, offset=(0,-40)))
 pgm.add_node(daft.Node("Gvpulim", "$G_\mathrm{VPU,lim}$", 1, 7, fixed=True, offset=(0,6)))
 pgm.add_node(daft.Node("resource", "VPU resource\nmanagement", 1, 6, fixed=True, offset=(-12,6)))
 pgm.add_node(daft.Node("fpamotion", "Focal plane\nmotion", 1, 5, fixed=True, offset=(0,6)))
